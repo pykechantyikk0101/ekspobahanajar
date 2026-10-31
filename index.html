@@ -1,0 +1,1636 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Bahan Ajar Eksponen</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;600;700&display=swap">
+<script>
+try{document.documentElement.classList.add('mj-wait')}catch(e){}
+window.MathJax={startup:{typeset:false},tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'},options:{enableMenu:false}};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+<style>
+/* Konsep: halaman petualangan belajar. Hero gelap beranimasi, jalur peta materi, enam kegiatan dengan warna sendiri-sendiri, pengerjaan vertikal bertahap di atas "kertas", lalu latihan dan kuis interaktif. */
+:root{
+  --bg:#F3F5FB; --surface:#FFFFFF; --ink:#101B33; --muted:#53607B; --line:#DAE0EE; --paper:#FAFBFE; --margin:#F1A5A5;
+  --c1:#D9461F; --onc1:#FFFFFF; --cd1:#B53310;
+  --c2:#F5B301; --onc2:#2B1E00; --cd2:#8A5A00;
+  --c3:#12857A; --onc3:#FFFFFF; --cd3:#0B6B61;
+  --c4:#2A5FD6; --onc4:#FFFFFF; --cd4:#1F4CB0;
+  --c5:#7A3FC8; --onc5:#FFFFFF; --cd5:#66309F;
+  --c6:#CC2A63; --onc6:#FFFFFF; --cd6:#A81F50;
+  --c7:#4A45D8; --onc7:#FFFFFF; --cd7:#3B36B5;
+  --ok:#14803C; --okbg:#DCF4E3; --bad:#B42318; --badbg:#FCE4E1; --warn:#C2410C;
+  --hero:#0B1230; --heroink:#EAF0FF;
+  --f-display:'Bricolage Grotesque','Trebuchet MS',system-ui,sans-serif;
+  --f-body:'Figtree',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0A1020; --surface:#121B31; --ink:#E9EEFA; --muted:#9AA7C2; --line:#243050; --paper:#0E1730; --margin:#7A3B4A;
+    --c1:#FF8A68; --onc1:#2A0F06; --cd1:#FF8A68;
+    --c2:#FFC94D; --onc2:#2B1E00; --cd2:#FFC94D;
+    --c3:#4FD6C5; --onc3:#04302B; --cd3:#4FD6C5;
+    --c4:#86AAFF; --onc4:#0A1A44; --cd4:#86AAFF;
+    --c5:#C29BFF; --onc5:#22093F; --cd5:#C29BFF;
+    --c6:#FF86AE; --onc6:#3A0719; --cd6:#FF86AE;
+    --c7:#A5A0FF; --onc7:#14123F; --cd7:#A5A0FF;
+    --ok:#4ADE80; --okbg:#12361F; --bad:#FF8A8A; --badbg:#3F1A1A; --warn:#FF9A5C;
+    --hero:#070C20; --heroink:#EAF0FF; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0A1020; --surface:#121B31; --ink:#E9EEFA; --muted:#9AA7C2; --line:#243050; --paper:#0E1730; --margin:#7A3B4A;
+  --c1:#FF8A68; --onc1:#2A0F06; --cd1:#FF8A68;
+  --c2:#FFC94D; --onc2:#2B1E00; --cd2:#FFC94D;
+  --c3:#4FD6C5; --onc3:#04302B; --cd3:#4FD6C5;
+  --c4:#86AAFF; --onc4:#0A1A44; --cd4:#86AAFF;
+  --c5:#C29BFF; --onc5:#22093F; --cd5:#C29BFF;
+  --c6:#FF86AE; --onc6:#3A0719; --cd6:#FF86AE;
+  --c7:#A5A0FF; --onc7:#14123F; --cd7:#A5A0FF;
+  --ok:#4ADE80; --okbg:#12361F; --bad:#FF8A8A; --badbg:#3F1A1A; --warn:#FF9A5C;
+  --hero:#070C20; --heroink:#EAF0FF; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.65;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--surface)}
+.wrap{max-width:1000px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3,h4{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0}
+p{margin:0 0 .8em}
+a{color:inherit}
+button{font-family:inherit}
+:focus-visible{outline:3px solid var(--c,var(--c7));outline-offset:2px}
+mjx-container{max-width:100%}
+.mj-wait .sec{visibility:hidden}
+
+/* ---------- animasi ---------- */
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{transform:scale(.6);opacity:0}70%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-7px)}40%{transform:translateX(7px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(40px,-30px) scale(1.15)}}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-22px) rotate(calc(var(--r,0deg) + 6deg))}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--c,var(--c7)) 55%,transparent)}100%{box-shadow:0 0 0 12px transparent}}
+@keyframes confetti{0%{transform:translate(0,0) rotate(0);opacity:1}100%{transform:translate(var(--dx),var(--dy)) rotate(var(--rot));opacity:0}}
+@keyframes slidein{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.rv.in{animation:rise .65s cubic-bezier(.2,.7,.2,1) backwards}
+
+/* ---------- hero ---------- */
+.hero{background:var(--hero);color:var(--heroink);position:relative;overflow:hidden;isolation:isolate}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.45;z-index:-1;animation:drift 14s ease-in-out infinite alternate}
+.blob.b1{width:420px;height:420px;background:#D9461F;left:-120px;top:-100px}
+.blob.b2{width:380px;height:380px;background:#2A5FD6;right:-100px;top:40px;animation-delay:-4s}
+.blob.b3{width:340px;height:340px;background:#7A3FC8;left:35%;bottom:-180px;animation-delay:-8s}
+.sym{position:absolute;font-family:var(--f-display);font-weight:800;color:#fff;opacity:.13;z-index:-1;animation:floaty 9s ease-in-out infinite;pointer-events:none;user-select:none}
+.hero .wrap{padding-block:54px 56px;display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center}
+.kicker{font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:#FFC94D;margin-bottom:12px}
+.hero h1{font-size:clamp(3.4rem,11vw,6.6rem);font-weight:800;letter-spacing:-.025em;line-height:.95}
+.hero h1 .pw{display:inline-block;font-size:.38em;vertical-align:top;margin-left:.08em;color:#4FD6C5;min-width:.6em;transition:transform .3s}
+.lead{font-size:1.15rem;max-width:30em;margin:18px 0 0;opacity:.92}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.chip{border:1px solid rgba(234,240,255,.35);border-radius:999px;padding:4px 14px;font-size:.88rem;font-weight:600}
+.chip b{font-family:var(--f-display)}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{display:inline-block;text-decoration:none;font-weight:700;border-radius:12px;padding:12px 22px;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.p{background:#FFC94D;color:#2B1E00;animation:pulse 2s infinite}
+.btn.g{border:2px solid rgba(234,240,255,.5);color:var(--heroink)}
+.hero .e1{animation:rise .8s .05s backwards}.hero .e2{animation:rise .8s .2s backwards}.hero .e3{animation:rise .8s .35s backwards}.hero .e4{animation:rise .8s .5s backwards}.hero .e5{animation:rise .9s .3s backwards}
+.hcard{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:22px;padding:16px 16px 12px;backdrop-filter:blur(6px);min-width:0}
+.hcard svg{width:100%;height:auto;display:block}
+.tick{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-family:var(--f-display);padding:4px 6px 2px;flex-wrap:wrap}
+.tick .t1{font-size:1.9rem;font-weight:800}
+.tick .t2{font-size:.85rem;opacity:.75;font-family:var(--f-body)}
+.tick sup{font-size:.6em}
+
+/* ---------- navigasi ---------- */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--surface);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:8px}
+.nav .links{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
+.nav a{white-space:nowrap;text-decoration:none;color:var(--muted);font-weight:700;font-size:.88rem;padding:14px 10px;border-bottom:3px solid transparent;display:flex;align-items:center;gap:6px}
+.nav a i{width:9px;height:9px;border-radius:50%;background:var(--dot,var(--muted));display:inline-block;flex:none}
+.nav a:hover{color:var(--ink)}
+.nav a.on{color:var(--ink);border-bottom-color:var(--dot,var(--c7))}
+.pts{flex:none;background:var(--ink);color:var(--bg);border-radius:999px;padding:4px 14px;font-size:.85rem;font-weight:700;white-space:nowrap}
+.pts.bump{animation:pop .4s}
+#bar{position:absolute;left:0;bottom:-1px;height:3px;width:0;background:linear-gradient(90deg,var(--c1),var(--c2),var(--c3),var(--c4),var(--c5),var(--c6))}
+
+/* ---------- peta materi ---------- */
+.mapsec{padding-block:64px 24px}
+.title2{font-size:clamp(1.9rem,5vw,2.8rem);font-weight:800}
+.sub2{color:var(--muted);margin:8px 0 34px;max-width:36em}
+.road{position:relative;display:grid;gap:26px}
+.road::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:6px;margin-left:-3px;background:var(--line);border-radius:6px}
+.road .fill{position:absolute;left:50%;top:0;width:6px;margin-left:-3px;height:0;border-radius:6px;background:linear-gradient(var(--c1),var(--c2),var(--c3),var(--c4),var(--c5),var(--c6));transition:height .2s}
+.stop{display:grid;grid-template-columns:1fr 1fr;position:relative;align-items:center}
+.stop .sc{grid-column:1;margin-right:46px}
+.stop:nth-child(odd) .sc{grid-column:2;margin-right:0;margin-left:46px}
+.stop .node{position:absolute;left:50%;top:50%;width:62px;height:62px;margin:-31px 0 0 -31px;border-radius:50%;background:var(--c);color:var(--onc);display:grid;place-items:center;font-family:var(--f-display);font-weight:800;font-size:1.45rem;border:5px solid var(--bg);z-index:2;transition:transform .25s}
+.stop:hover .node{transform:scale(1.14) rotate(-6deg)}
+.sc{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px 20px;text-decoration:none;display:block;transition:transform .2s,box-shadow .2s;min-width:0}
+.sc:hover{transform:translateY(-4px);box-shadow:0 14px 28px -14px color-mix(in srgb,var(--c) 70%,transparent)}
+.sc .k{font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--cd)}
+.sc h3{font-size:1.3rem;margin:4px 0 6px}
+.sc p{color:var(--muted);font-size:.95rem;margin:0 0 10px}
+.sc .fm{display:inline-block;background:color-mix(in srgb,var(--c) 14%,var(--surface));border-radius:8px;padding:2px 10px;font-weight:700;font-family:var(--f-display);font-size:.95rem;margin-bottom:12px}
+.sc .pr{height:8px;border-radius:8px;background:var(--line);overflow:hidden}
+.sc .pr i{display:block;height:100%;width:0;background:var(--c);border-radius:8px;transition:width .5s}
+.sc small{display:block;margin-top:6px;color:var(--muted);font-weight:600}
+.s1{--c:var(--c1);--onc:var(--onc1);--cd:var(--cd1);--dot:var(--c1)}
+.s2{--c:var(--c2);--onc:var(--onc2);--cd:var(--cd2);--dot:var(--c2)}
+.s3{--c:var(--c3);--onc:var(--onc3);--cd:var(--cd3);--dot:var(--c3)}
+.s4{--c:var(--c4);--onc:var(--onc4);--cd:var(--cd4);--dot:var(--c4)}
+.s5{--c:var(--c5);--onc:var(--onc5);--cd:var(--cd5);--dot:var(--c5)}
+.s6{--c:var(--c6);--onc:var(--onc6);--cd:var(--cd6);--dot:var(--c6)}
+.s7{--c:var(--c7);--onc:var(--onc7);--cd:var(--cd7);--dot:var(--c7)}
+
+/* ---------- bagian materi ---------- */
+.sec{padding-block:56px 6px;--soft:color-mix(in srgb,var(--c) 13%,var(--surface))}
+.sh{position:relative;overflow:hidden;border-radius:24px;padding:26px 28px;background:var(--c);color:var(--onc);display:flex;gap:20px;align-items:center;margin-bottom:26px}
+.sh .num{font:800 clamp(3.6rem,10vw,5.6rem)/1 var(--f-display);opacity:.3;flex:none}
+.sh .tx{min-width:0;position:relative;z-index:1}
+.sh h2{font-size:clamp(1.7rem,4.6vw,2.6rem);font-weight:800}
+.sh p{margin:6px 0 0;font-weight:600;opacity:.92}
+.sh .gl{position:absolute;right:14px;bottom:-34px;font:800 9rem/1 var(--f-display);opacity:.16;pointer-events:none;user-select:none}
+.sub{display:flex;align-items:center;gap:10px;margin:36px 0 12px;font:700 1.3rem var(--f-display);flex-wrap:wrap}
+.sub i{font-style:normal;background:var(--c);color:var(--onc);font:800 .7rem var(--f-body);letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:6px;white-space:nowrap}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;min-width:0;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 24px -16px color-mix(in srgb,var(--c) 60%,transparent)}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr))}
+ul,ol{margin:0 0 1em;padding-left:1.25em}
+li{margin-bottom:.3em}
+.rumus{background:var(--soft);border:2px solid var(--c);border-radius:16px;padding:10px 16px;margin:14px 0;overflow-x:auto;text-align:center;font-size:1.15rem}
+.rumus small{display:block;font-size:.84rem;color:var(--muted);margin-top:2px}
+.rumus mjx-container[display="true"]{margin:.5em 0!important}
+.note{background:var(--soft);border-radius:14px;padding:14px 18px;margin:16px 0}
+.note b.tg{display:inline-block;background:var(--c);color:var(--onc);font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;border-radius:5px;padding:2px 9px;margin-right:8px}
+.note p:last-child{margin:0}
+.lead2{font-size:1.05rem;margin:0 0 14px}
+.b{font:700 .95rem var(--f-body);background:var(--c);color:var(--onc);border:2px solid var(--c);border-radius:10px;padding:8px 16px;cursor:pointer;transition:transform .12s,opacity .2s}
+.b:hover:not(:disabled){transform:translateY(-2px)}
+.b:active:not(:disabled){transform:scale(.95)}
+.b:disabled{opacity:.45;cursor:default}
+.b.ghost{background:transparent;color:var(--cd)}
+.b.sm{padding:5px 12px;font-size:.85rem}
+
+/* ---------- pengerjaan vertikal ---------- */
+.ex{background:var(--surface);border:1px solid var(--line);border-radius:18px;margin:18px 0;overflow:hidden}
+.ex .eh{display:flex;gap:10px;align-items:baseline;padding:14px 20px 4px;flex-wrap:wrap}
+.ex .eh b{font:800 1.05rem var(--f-display);color:var(--cd)}
+.ex .eq{padding:2px 20px 12px;font-size:1.02rem}
+.work{background:var(--paper);border-top:1px dashed var(--line);padding:12px 18px 14px 26px;position:relative;overflow-x:auto}
+.work::before{content:"";position:absolute;left:14px;top:0;bottom:0;width:2px;background:var(--margin);opacity:.6}
+.wg{display:grid;grid-template-columns:auto auto auto minmax(0,1fr);column-gap:10px;align-items:center;width:max-content;min-width:100%}
+.wg .c{padding:.28rem 0;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .45s,transform .45s,visibility .45s}
+.wg .c.on{opacity:1;visibility:visible;transform:none}
+.wg .l{justify-self:end;text-align:right}
+.wg .r{justify-self:center}
+.wg .v{justify-self:start}
+.wg .n{color:var(--muted);font-size:.86rem;padding-left:12px;white-space:nowrap}
+.wg .h{grid-column:1/-1;font-weight:700;color:var(--cd);padding-top:.7rem}
+.wg mjx-container{margin:0!important}
+.wctl{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px;position:sticky;left:0}
+.wctl .cnt{font-size:.85rem;color:var(--muted);font-weight:600}
+@media (max-width:640px){
+  .wg{grid-template-columns:auto auto minmax(0,1fr)}
+  .wg .n{grid-column:1/-1;padding-left:0;white-space:normal;margin-top:-4px}
+  .wg .n:empty{display:none}
+}
+
+/* ---------- interaktif ---------- */
+.lab{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px 20px;margin:18px 0;position:relative;overflow:hidden}
+.lab::before{content:"";position:absolute;inset:0 0 auto;height:5px;background:var(--c)}
+.lab .tg{display:inline-flex;align-items:center;gap:7px;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--cd);margin-bottom:6px}
+.lab .tg::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--c);animation:pulse 1.8s infinite}
+.lab h4{font-size:1.15rem;margin-bottom:6px}
+.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:12px 0}
+.row label{font-weight:700}
+input[type=range]{flex:1 1 200px;min-width:0;accent-color:var(--c)}
+.fld{font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:10px;padding:8px 12px;min-width:0}
+.fld:focus{border-color:var(--c);outline:none}
+.tiles{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));margin-top:10px}
+.tile{background:var(--bg);border-radius:12px;padding:10px 14px;min-width:0}
+.tile .k{font-size:.74rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:700}
+.tile .v{font:800 1.35rem var(--f-display);overflow-wrap:anywhere}
+canvas{width:100%;height:320px;display:block;background:var(--bg);border-radius:12px;border:1px solid var(--line)}
+.stepper{display:inline-flex;align-items:center;gap:8px;background:var(--bg);border-radius:12px;padding:4px 6px}
+.stepper b{font:800 1.4rem var(--f-display);min-width:1.6em;text-align:center}
+.stepper button{width:34px;height:34px;border-radius:9px;border:0;background:var(--c);color:var(--onc);font:800 1.2rem var(--f-body);cursor:pointer}
+.stepper button:active{transform:scale(.9)}
+.blocks{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:12px;font-family:var(--f-display);font-weight:800}
+.blk{background:var(--c);color:var(--onc);border-radius:10px;padding:6px 12px;animation:pop .35s backwards}
+.times{color:var(--muted)}
+.big{font:800 1.5rem var(--f-display);margin-top:10px}
+.big sup{font-size:.6em}
+.chain{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0}
+.chain .ch{background:var(--soft);border:2px solid var(--c);border-radius:12px;padding:6px 12px;animation:pop .4s backwards}
+.chain .ar{color:var(--cd);font-weight:800;font-size:.85rem}
+.chain .ch.hot{background:var(--c);color:var(--onc)}
+.msg{min-height:1.6em;font-weight:600;margin:6px 0 0}
+
+/* kartu balik */
+.flips{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr))}
+.flip{perspective:900px;cursor:pointer;border-radius:16px}
+.flip .in2{display:grid;transition:transform .6s;transform-style:preserve-3d}
+.flip.fl .in2{transform:rotateY(180deg)}
+.face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:16px;padding:16px 18px;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:6px;min-height:150px}
+.face.f{background:var(--surface);border:2px solid var(--c)}
+.face.k{background:var(--c);color:var(--onc);transform:rotateY(180deg)}
+.face .cp{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;font-weight:800;opacity:.8}
+.face .hint{font-size:.8rem;opacity:.7;margin-top:auto}
+.face .fm{text-align:center;overflow-x:auto}
+
+/* tab */
+.tabs2{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 4px}
+.tabs2 button{font:700 .92rem var(--f-body);background:var(--surface);color:var(--ink);border:2px solid var(--line);border-radius:999px;padding:7px 16px;cursor:pointer;transition:all .15s}
+.tabs2 button:hover{border-color:var(--c)}
+.tabs2 button[aria-selected="true"],.tabs2 button[aria-pressed="true"]{background:var(--c);border-color:var(--c);color:var(--onc)}
+.tp{animation:slidein .4s}
+
+/* cocokkan */
+.mt{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;margin-top:10px}
+.mt .col{display:grid;gap:10px;align-content:start}
+.mb{font:600 1rem var(--f-body);background:var(--bg);color:var(--ink);border:2px solid var(--line);border-radius:12px;padding:10px 8px;cursor:pointer;min-height:56px;display:flex;align-items:center;justify-content:center;transition:all .15s;min-width:0;overflow-x:auto}
+.mb:hover:not(:disabled){border-color:var(--c)}
+.mb.sel{border-color:var(--c);background:var(--soft);transform:scale(1.03)}
+.mb.done{background:var(--okbg);border-color:var(--ok);cursor:default}
+.mb.no{animation:shake .4s;border-color:var(--bad)}
+
+/* benar salah */
+.tfc{background:var(--bg);border-radius:14px;padding:16px 18px;margin-top:10px}
+.tfc .st{font-size:1.2rem;text-align:center;padding:10px 0;overflow-x:auto}
+.tfb{display:flex;gap:12px;justify-content:center;margin:8px 0}
+.tfb .b{min-width:120px}
+.fb{margin-top:10px;border-radius:12px;padding:10px 14px;font-weight:600}
+.fb.ok{background:var(--okbg);color:var(--ok)}
+.fb.no{background:var(--badbg);color:var(--bad)}
+.fb.hn{background:var(--soft);color:var(--ink)}
+.fb .ex2{font-weight:400;color:var(--ink)}
+
+/* coba sendiri */
+.try{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 18px 12px;margin:14px 0;position:relative}
+.try>.tg{display:inline-block;background:var(--c);color:var(--onc);font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;border-radius:5px;padding:2px 9px;margin-bottom:6px}
+.try .lv{margin-left:6px;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.try.done{border-color:var(--ok)}
+.try.done>.tg{background:var(--ok);color:var(--surface)}
+.tq{font-size:1.02rem;margin-bottom:8px;overflow-x:auto}
+.tui{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.tui .fld{flex:1 1 180px;font-size:1rem}
+.keys{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.keys button{font:700 .95rem var(--f-body);background:var(--bg);border:1px solid var(--line);border-radius:8px;min-width:36px;padding:3px 8px;cursor:pointer;color:var(--ink)}
+.keys button:hover{border-color:var(--c)}
+.try.shake{animation:shake .4s}
+details.sol{margin-top:10px;border:1px solid var(--line);border-radius:12px;background:var(--paper)}
+details.sol>summary{cursor:pointer;padding:8px 14px;font-weight:700;font-size:.92rem;color:var(--cd);list-style:none}
+details.sol>summary::-webkit-details-marker{display:none}
+details.sol>summary::before{content:"+ "}
+details.sol[open]>summary::before{content:"− "}
+details.sol .work{border-top:1px dashed var(--line)}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+
+/* rangkuman */
+.sheet{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.sheet .card{padding:0;overflow:hidden}
+.sheet .card h4{background:var(--c);color:var(--onc);padding:10px 18px;font-size:1.05rem}
+.sheet .card .bd{padding:6px 14px 10px;overflow-x:auto}
+.sheet .card .bd mjx-container[display="true"]{margin:.45em 0!important}
+
+/* kuis */
+.qz{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:20px 22px;min-width:0}
+.qp{height:10px;border-radius:10px;background:var(--line);overflow:hidden;margin-bottom:6px}
+.qp i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--c4),var(--c5),var(--c6));transition:width .4s;border-radius:10px}
+.qm{display:flex;justify-content:space-between;color:var(--muted);font-weight:700;font-size:.85rem;margin-bottom:12px}
+.qt{font-size:1.15rem;font-weight:600;margin-bottom:14px;overflow-x:auto}
+.opts{display:grid;gap:10px}
+.opt{font:inherit;text-align:left;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:12px;padding:10px 14px;cursor:pointer;display:flex;gap:12px;align-items:center;transition:all .15s;min-width:0}
+.opt:hover:not(:disabled){border-color:var(--c);transform:translateX(4px)}
+.opt b{font:800 1rem var(--f-display);background:var(--line);border-radius:8px;width:30px;height:30px;display:grid;place-items:center;flex:none}
+.opt span{min-width:0;overflow-x:auto}
+.opt.ok{background:var(--okbg);border-color:var(--ok)}
+.opt.ok b{background:var(--ok);color:var(--surface)}
+.opt.no{background:var(--badbg);border-color:var(--bad);animation:shake .4s}
+.opt:disabled{cursor:default}
+.res{text-align:center;padding:16px 0}
+.res .sc2{font:800 4.5rem/1 var(--f-display);color:var(--cd)}
+.res .sc2 small{font-size:1.4rem;color:var(--muted)}
+
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,40px);background:var(--ink);color:var(--bg);padding:10px 20px;border-radius:999px;font-weight:700;z-index:70;opacity:0;transition:all .4s;pointer-events:none;max-width:90vw;text-align:center}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.cf{position:fixed;width:9px;height:14px;z-index:80;border-radius:2px;pointer-events:none;animation:confetti .9s ease-out forwards}
+
+footer{margin-top:64px;background:var(--hero);color:var(--heroink)}
+footer .wrap{padding-block:30px;font-size:.92rem;opacity:.92}
+svg text{font-family:var(--f-body)}
+.nl{width:100%;height:auto;max-width:520px;display:block;margin:8px auto 0}
+.nl .ln{stroke:var(--ink);stroke-width:2}
+.nl .tk{font-size:13px;fill:var(--ink)}
+.nl .sh2{stroke:var(--c);stroke-width:7;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;animation:draw .9s .1s forwards}
+.nl .dot{fill:var(--surface);stroke:var(--c);stroke-width:3}
+
+@media (max-width:820px){
+  .hero .wrap{grid-template-columns:1fr;padding-block:40px 40px}
+  .road::before,.road .fill{left:31px}
+  .stop{grid-template-columns:1fr}
+  .stop .sc,.stop:nth-child(odd) .sc{grid-column:1;margin:0 0 0 78px}
+  .stop .node{left:31px}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .sh{padding:20px;flex-direction:column;align-items:flex-start;gap:6px}
+  .mt{gap:10px}
+  .tfb .b{min-width:0;flex:1}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .nl .sh2{stroke-dashoffset:0}
+}
+</style>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="atas">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <span class="sym" style="left:46%;top:10%;font-size:4.5rem;--r:-8deg">aⁿ</span>
+  <span class="sym" style="left:6%;bottom:12%;font-size:5rem;--r:10deg;animation-delay:-3s">√</span>
+  <span class="sym" style="right:6%;top:6%;font-size:3.6rem;--r:6deg;animation-delay:-5s">2ˣ</span>
+  <span class="sym" style="right:34%;bottom:6%;font-size:3.2rem;--r:-6deg;animation-delay:-2s">10⁻³</span>
+  <div class="wrap">
+    <div>
+      <div class="kicker e1">Matematika Umum · Kelas X · Fase E</div>
+      <h1 class="e2">Eksponen<span class="pw" id="pw">n</span></h1>
+      <p class="lead e3">Dari perkalian berulang sampai pertumbuhan eksponensial. Setiap konsep dijelaskan singkat, dikerjakan langkah demi langkah, lalu kamu coba sendiri.</p>
+      <div class="chips e3"><span class="chip"><b data-n="6">6</b> kegiatan belajar</span><span class="chip"><b id="cntTry">0</b> soal interaktif</span><span class="chip"><b data-n="10">10</b> soal kuis</span></div>
+      <div class="cta e4"><a class="btn p" href="#peta">Mulai petualangan</a><a class="btn g" href="#rumus">Lihat rumus</a></div>
+    </div>
+    <div class="hcard e5" aria-hidden="true">
+      <svg id="heroCurve" viewBox="0 0 360 230"></svg>
+      <div class="tick"><span class="t1" id="tk1">2<sup>1</sup> = 2</span><span class="t2">Setiap +1 pangkat, hasilnya dikali 2</span></div>
+    </div>
+  </div>
+</header>
+
+<nav class="nav" aria-label="Menu materi">
+  <div class="wrap">
+    <div class="links" id="nav">
+      <a href="#peta" style="--dot:var(--muted)"><i></i>Peta</a>
+      <a href="#k1" style="--dot:var(--c1)"><i></i>1 Konsep</a>
+      <a href="#k2" style="--dot:var(--c2)"><i></i>2 Sifat</a>
+      <a href="#k3" style="--dot:var(--c3)"><i></i>3 Akar</a>
+      <a href="#k4" style="--dot:var(--c4)"><i></i>4 Persamaan</a>
+      <a href="#k5" style="--dot:var(--c5)"><i></i>5 Fungsi</a>
+      <a href="#k6" style="--dot:var(--c6)"><i></i>6 Terapan</a>
+      <a href="#rumus" style="--dot:var(--muted)"><i></i>Rumus</a>
+      <a href="#latihan" style="--dot:var(--c7)"><i></i>Latihan</a>
+      <a href="#kuis" style="--dot:var(--c7)"><i></i>Kuis</a>
+    </div>
+    <div class="pts" id="ptsBox"><b id="pts">0</b> poin</div>
+  </div>
+  <div id="bar"></div>
+</nav>
+
+<!-- ================= PETA MATERI ================= -->
+<section class="mapsec wrap" id="peta">
+  <h2 class="title2">Peta belajar</h2>
+  <p class="sub2">Ikuti jalurnya dari atas ke bawah. Tiap pemberhentian punya target, contoh bertahap, dan soal interaktif. Bar warna terisi saat kamu menjawab benar.</p>
+  <div class="road" id="road">
+    <div class="fill" id="roadFill"></div>
+    <div class="stop s1 rv"><div class="node">aⁿ</div><a class="sc" href="#k1"><div class="k">Kegiatan 1</div><h3>Konsep eksponen</h3><p>Pangkat bulat positif, nol, negatif, dan notasi ilmiah.</p><span class="fm">aⁿ = a×a×…×a</span><div class="pr"><i></i></div><small class="pc">0 dari 3 soal</small></a></div>
+    <div class="stop s2 rv"><div class="node">×</div><a class="sc" href="#k2"><div class="k">Kegiatan 2</div><h3>Sifat-sifat eksponen</h3><p>Enam sifat untuk menyederhanakan bentuk pangkat.</p><span class="fm">aᵐ · aⁿ = aᵐ⁺ⁿ</span><div class="pr"><i></i></div><small class="pc">0 dari 3 soal</small></a></div>
+    <div class="stop s3 rv"><div class="node">√</div><a class="sc" href="#k3"><div class="k">Kegiatan 3</div><h3>Pangkat rasional dan akar</h3><p>Mengubah akar ke pangkat, menyederhanakan, merasionalkan.</p><span class="fm">aᵐ/ⁿ = ⁿ√aᵐ</span><div class="pr"><i></i></div><small class="pc">0 dari 4 soal</small></a></div>
+    <div class="stop s4 rv"><div class="node">=</div><a class="sc" href="#k4"><div class="k">Kegiatan 4</div><h3>Persamaan dan pertidaksamaan</h3><p>Mencari nilai x pada bentuk eksponen.</p><span class="fm">aᶠ = aᵍ ⇒ f = g</span><div class="pr"><i></i></div><small class="pc">0 dari 4 soal</small></a></div>
+    <div class="stop s5 rv"><div class="node">ƒ</div><a class="sc" href="#k5"><div class="k">Kegiatan 5</div><h3>Fungsi eksponen</h3><p>Membaca dan menggambar grafik y = aˣ.</p><span class="fm">f(x) = aˣ, a &gt; 0, a ≠ 1</span><div class="pr"><i></i></div><small class="pc">0 dari 3 soal</small></a></div>
+    <div class="stop s6 rv"><div class="node">%</div><a class="sc" href="#k6"><div class="k">Kegiatan 6</div><h3>Pertumbuhan dan peluruhan</h3><p>Memodelkan bunga, populasi, dan waktu paruh.</p><span class="fm">M = M₀(1 ± r)ᵗ</span><div class="pr"><i></i></div><small class="pc">0 dari 3 soal</small></a></div>
+  </div>
+</section>
+
+<main class="wrap">
+
+<!-- ================= K1 ================= -->
+<section class="sec s1" id="k1">
+  <div class="sh rv"><div class="num">1</div><div class="tx"><h2>Konsep eksponen</h2><p>Target: menghitung pangkat bulat dan menulis bilangan dalam notasi ilmiah.</p></div><div class="gl" aria-hidden="true">aⁿ</div></div>
+
+  <div class="lab rv">
+    <div class="tg">Interaktif · Pemanasan</div>
+    <h4>Lipat kertas berkali-kali, setebal apa jadinya?</h4>
+    <p>Kertas setebal 0,1 mm dilipat dua. Tiap lipatan menggandakan lapisan. Geser nilai <em>n</em>.</p>
+    <div class="row"><label for="foldN">Lipatan n = <b id="foldVal">10</b></label><input type="range" id="foldN" min="0" max="45" value="10"></div>
+    <div class="tiles">
+      <div class="tile"><div class="k">Lapisan 2ⁿ</div><div class="v" id="foldLayers"></div></div>
+      <div class="tile"><div class="k">Tebal</div><div class="v" id="foldH"></div></div>
+      <div class="tile"><div class="k">Setara</div><div class="v" style="font:600 1rem var(--f-body)" id="foldCmp"></div></div>
+    </div>
+  </div>
+
+  <h3 class="sub rv"><i>Konsep</i>Pangkat bulat positif</h3>
+  <p class="lead2">Eksponen adalah cara singkat menulis perkalian berulang.</p>
+  <div class="rumus rv">\[ a^n=\underbrace{a\times a\times\cdots\times a}_{n\ \text{faktor}} \]<small>a disebut basis, n disebut eksponen (pangkat)</small></div>
+
+  <div class="lab rv">
+    <div class="tg">Interaktif · Susun pangkat</div>
+    <h4>Atur basis dan eksponen, lihat penguraiannya</h4>
+    <div class="row">
+      <span>Basis <span class="stepper"><button type="button" id="bbM" aria-label="Kurangi basis">−</button><b id="bbV">3</b><button type="button" id="bbP" aria-label="Tambah basis">+</button></span></span>
+      <span>Eksponen <span class="stepper"><button type="button" id="beM" aria-label="Kurangi eksponen">−</button><b id="beV">4</b><button type="button" id="beP" aria-label="Tambah eksponen">+</button></span></span>
+      <button type="button" class="b ghost sm" id="bNeg" aria-pressed="false">Basis negatif: mati</button>
+    </div>
+    <div class="blocks" id="bBlocks"></div>
+    <div class="big" id="bOut"></div>
+    <p class="msg" id="bMsg"></p>
+  </div>
+
+  <h3 class="sub rv"><i>Konsep</i>Pangkat nol dan negatif</h3>
+  <p class="lead2">Perhatikan polanya. Setiap pangkat turun 1, hasilnya dibagi 2. Tekan tombol untuk melanjutkan pola.</p>
+  <div class="lab rv">
+    <div class="tg">Interaktif · Temukan pola</div>
+    <div class="chain" id="patChain"></div>
+    <div class="row"><button type="button" class="b" id="patNext">Turunkan pangkat (÷ 2)</button><button type="button" class="b ghost" id="patReset">Ulangi</button></div>
+    <p class="msg" id="patMsg"></p>
+  </div>
+  <div class="rumus rv">\[ a^0=1\qquad a^{-n}=\dfrac{1}{a^n}\qquad \left(\dfrac ab\right)^{-n}=\left(\dfrac ba\right)^{n} \]<small>syarat a ≠ 0. Pangkat negatif berarti kebalikan, bukan hasil negatif.</small></div>
+
+  <div class="ex rv"><div class="eh"><b>Contoh 1</b></div><div class="eq">Hitung (a) \((-2)^5\) (b) \(\left(\frac23\right)^{-3}\) (c) \(2^{-1}+3^{-1}\)</div>
+<pre class="w">
+# a)
+\left(-2\right)^5 | = | (-2)(-2)(-2)(-2)(-2) | uraikan perkalian
+ | = | -32 | basis negatif, pangkat ganjil → negatif
+# b)
+\left(\dfrac23\right)^{-3} | = | \left(\dfrac32\right)^{3} | pangkat negatif → balik pecahan
+ | = | \dfrac{27}{8} |
+# c)
+2^{-1}+3^{-1} | = | \dfrac12+\dfrac13 | ubah ke pecahan
+ | = | \dfrac36+\dfrac26 | samakan penyebut
+ | = | \dfrac56 |
+</pre></div>
+
+  <h3 class="sub rv"><i>Konsep</i>Notasi ilmiah</h3>
+  <div class="rumus rv">\[ a\times10^{n},\qquad 1\le a\lt 10,\ n\ \text{bilangan bulat} \]<small>Koma digeser ke kiri → n positif. Koma digeser ke kanan → n negatif.</small></div>
+  <div class="lab rv">
+    <div class="tg">Interaktif · Konverter</div>
+    <div class="row"><label for="sciIn">Ketik sebuah bilangan</label><input class="fld" id="sciIn" type="text" inputmode="decimal" value="0,000075" autocomplete="off"></div>
+    <div class="tiles"><div class="tile"><div class="k">Notasi ilmiah</div><div class="v" id="sciOut"></div></div><div class="tile"><div class="k">Penjelasan</div><div class="v" style="font:600 1rem var(--f-body)" id="sciWhy"></div></div></div>
+    <div class="row"><span style="font-weight:700">Coba:</span><button type="button" class="b ghost sm" data-sci="300000000">kecepatan cahaya</button><button type="button" class="b ghost sm" data-sci="0,0000075">sel darah merah</button><button type="button" class="b ghost sm" data-sci="5970000000000000000000000">massa Bumi (kg)</button></div>
+  </div>
+
+  <h3 class="sub rv"><i>Latihan</i>Coba sendiri</h3>
+  <div class="try rv" data-sec="1" data-type="num" data-a="16" data-keys="/" data-hint="Pangkat negatif membalik pecahan: \(\left(\frac12\right)^{-4}=2^{4}\).">
+    <div class="tq">Hitung \(\left(\dfrac12\right)^{-4}\).</div>
+    <details class="sol"><summary>Lihat pembahasan</summary><pre class="w static">
+\left(\dfrac12\right)^{-4} | = | 2^4 | pangkat negatif → balik pecahan
+ | = | 16 |
+</pre></details></div>
+  <div class="try rv" data-sec="1" data-type="num" data-a="-4" data-hint="Geser koma ke kanan sampai menjadi 4,2. Geser ke kanan berarti n negatif.">
+    <div class="tq">Bilangan 0,00042 ditulis \(4{,}2\times10^{n}\). Berapa nilai \(n\)?</div>
+    <details class="sol"><summary>Lihat pembahasan</summary><pre class="w static">
+0{,}00042 | = | 4{,}2\times10^{-4} | koma digeser 4 kali ke kanan
+n | = | -4 |
+</pre></details></div>
+  <div class="try rv" data-sec="1" data-type="num" data-a="5/4" data-keys="/" data-hint="\(2^{-2}=\frac14\) dan \(2^0=1\).">
+    <div class="tq">Hitung \(2^{-2}+2^{0}\). Tulis sebagai pecahan, misalnya 3/4.</div>
+    <details class="sol"><summary>Lihat pembahasan</summary><pre class="w static">
+2^{-2}+2^{0} | = | \dfrac14+1 |
+ | = | \dfrac54 |
+</pre></details></div>
+</section>
+
+<!-- ================= K2 ================= -->
+<section class="sec s2" id="k2">
+  <div class="sh rv"><div class="num">2</div><div class="tx"><h2>Sifat-sifat eksponen</h2><p>Target: menyederhanakan bentuk pangkat memakai enam sifat.</p></div><div class="gl" aria-hidden="true">×</div></div>
+
+  <h3 class="sub rv" style="margin-top:0"><i>Konsep</i>Enam sifat utama</h3>
+  <p class="lead2">Ketuk kartu untuk melihat alasan dan contohnya. Syarat: basis tidak nol.</p>
+  <div class="flips" id="flips">
+    <div class="flip rv" tabindex="0" role="button" aria-label="Sifat 1"><div class="in2"><div class="face f"><div class="cp">Sifat 1 · Kali, basis sama</div><div class="fm">\(\displaystyle a^m\cdot a^n=a^{m+n}\)</div><div class="hint">ketuk untuk membalik</div></div><div class="face k"><div class="cp">Mengapa</div><div class="fm">\(\displaystyle 2^3\cdot2^2=(2\cdot2\cdot2)(2\cdot2)=2^5\)</div>Jumlahkan pangkatnya.</div></div></div>
+    <div class="flip rv" tabindex="0" role="button" aria-label="Sifat 2"><div class="in2"><div class="face f"><div class="cp">Sifat 2 · Bagi, basis sama</div><div class="fm">\(\displaystyle \dfrac{a^m}{a^n}=a^{m-n}\)</div><div class="hint">ketuk untuk membalik</div></div><div class="face k"><div class="cp">Mengapa</div><div class="fm">\(\displaystyle \dfrac{2^5}{2^2}=\dfrac{2\cdot2\cdot2\cdot2\cdot2}{2\cdot2}=2^3\)</div>Kurangkan pangkatnya.</div></div></div>
+    <div class="flip rv" tabindex="0" role="button" aria-label="Sifat 3"><div class="in2"><div class="face f"><div class="cp">Sifat 3 · Pangkat dari pangkat</div><div class="fm">\(\displaystyle (a^m)^n=a^{m\cdot n}\)</div><div class="hint">ketuk untuk membalik</div></div><div class="face k"><div class="cp">Mengapa</div><div class="fm">\(\displaystyle (2^3)^2=2^3\cdot2^3=2^6\)</div>Kalikan pangkatnya.</div></div></div>
+    <div class="flip rv" tabindex="0" role="button" aria-label="Sifat 4"><div class="in2"><div class="face f"><div class="cp">Sifat 4 · Pangkat dari kali</div><div class="fm">\(\displaystyle (ab)^n=a^n\,b^n\)</div><div class="hint">ketuk untuk membalik</div></div><div class="face k"><div class="cp">Mengapa</div><div class="fm">\(\displaystyle (2\cdot3)^3=2^3\cdot3^3=8\cdot27=216\)</div>Setiap faktor ikut dipangkatkan.</div></div></div>
+    <div class="flip rv" tabindex="0" role="button" aria-label="Sifat 5"><div class="in2"><div class="face f"><div class="cp">Sifat 5 · Pangkat dari pecahan</div><div class="fm">\(\displaystyle \left(\dfrac ab\right)^n=\dfrac{a^n}{b^n}\)</div><div class="hint">ketuk untuk membalik</div></div><div class="face k"><div class="cp">Mengapa</div><div class="fm">\(\displaystyle \left(\dfrac23\right)^2=\dfrac{2^2}{3^2}=\dfrac49\)</div>Pembilang dan penyebut ikut dipangkatkan.</div></div></div>
+    <div class="flip rv" tabindex="0" role="button" aria-label="Sifat 6"><div class="in2"><div class="face f"><div class="cp">Sifat 6 · Nol dan negatif</div><div class="fm">\(\displaystyle a^0=1,\quad a^{-n}=\dfrac1{a^n}\)</div><div class="hint">ketuk untuk membalik</div></div><div class="face k"><div class="cp">Mengapa</div><div class="fm">\(\displaystyle \left(\dfrac23\right)^{-2}=\left(\dfrac32\right)^2=\dfrac94\)</div>Pindahkan ke seberang garis pecahan, tanda pangkat berubah.</div></div></div>
+  </div>
+
+  <h3 class="sub rv"><i>Strategi</i>Tiga langkah menyederhanakan</h3>
+  <div class="grid g3">
+    <div class="card rv"><h4>1. Samakan basis</h4><p style="margin:6px 0 0">Ubah ke bilangan prima: \(4=2^2\), \(8=2^3\), \(9=3^2\), \(27=3^3\), \(\tfrac12=2^{-1}\).</p></div>
+    <div class="card rv"><h4>2. Kerjakan pangkat luar</h4><p style="margin:6px 0 0">Selesaikan \((\ )^n\) lebih dulu dengan sifat 3, 4, dan 5.</p></div>
+    <div class="card rv"><h4>3. Gabungkan</h4><p style="margin:6px 0 0">Kali → jumlahkan pangkat. Bagi → kurangkan. Akhiri tanpa pangkat negatif.</p></div>
+  </div>
+
+  <h3 class="sub rv"><i>Contoh</i>Dikerjakan bertahap</h3>
+  <div class="ex rv"><div class="eh"><b>Contoh 2</b></div><div class="eq">Sederhanakan \(\dfrac{(2a^3b^{-2})^2}{4a^{-1}b^{3}}\) tanpa pangkat negatif.</div>
+<pre class="w">
+\dfrac{(2a^3b^{-2})^2}{4a^{-1}b^{3}} | = | \dfrac{4a^{6}b^{-4}}{4a^{-1}b^{3}} | pangkatkan pembilang (sifat 3, 4)
+ | = | a^{6-(-1)}\,b^{-4-3} | bagi → kurangkan pangkat
+ | = | a^{7}b^{-7} |
+ | = | \dfrac{a^7}{b^7} | pangkat negatif → ke penyebut
+</pre></div>
+  <div class="ex rv"><div class="eh"><b>Contoh 3</b></div><div class="eq">Hitung \(\dfrac{2^5\cdot4^2}{8^3}\).</div>
+<pre class="w">
+\dfrac{2^5\cdot4^2}{8^3} | = | \dfrac{2^5\cdot(2^2)^2}{(2^3)^3} | samakan basis menjadi 2
+ | = | \dfrac{2^5\cdot2^4}{2^9} | pangkat dari pangkat
+ | = | \dfrac{2^9}{2^9} | jumlahkan pangkat di pembilang
+ | = | 2^0=1 |
+</pre></div>
+  <div class="ex rv"><div class="eh"><b>Contoh 4</b></div><div class="eq">Sederhanakan \(\dfrac{3^{n+2}-3^{n}}{3^{n+1}}\).</div>
+<pre class="w">
+\dfrac{3^{n+2}-3^{n}}{3^{n+1}} | = | \dfrac{3^{n}(3^2-1)}{3^{n}\cdot3} | faktorkan 3ⁿ, uraikan 3ⁿ⁺¹
+ | = | \dfrac{8}{3} | coret 3ⁿ
+</pre></div>
+
+  <h3 class="sub rv"><i>Cek</i>Benar atau salah?</h3>
+  <div class="lab rv" id="tfLab">
+    <div class="tg">Interaktif · Kuis kilat</div>
+    <p style="margin:0">Putuskan apakah pernyataan berikut benar. Ini kesalahan yang paling sering terjadi.</p>
+    <div class="tfc"><div class="st" id="tfSt"></div>
+      <div class="tfb"><button type="button" class="b" id="tfT">Benar</button><button type="button" class="b ghost" id="tfF">Salah</button></div>
+      <div id="tfFb"></div>
+      <div class="row" style="justify-content:space-between;margin-bottom:0"><span class="msg" id="tfCnt"></span><button type="button" class="b sm" id="tfNext" hidden>Berikutnya</button></div>
+    </div>
+  </div>
+  <template id="tfData">
+    <div data-ok="1"><span>\(2^3\cdot2^2=2^5\)</span><em>Benar. Basis sama, pangkat dijumlahkan: 3 + 2 = 5.</em></div>
+    <div data-ok="0"><span>\((a+b)^2=a^2+b^2\)</span><em>Salah. \((a+b)^2=a^2+2ab+b^2\). Sifat pangkat hanya berlaku untuk perkalian.</em></div>
+    <div data-ok="0"><span>\(2^{-3}=-8\)</span><em>Salah. \(2^{-3}=\frac18\). Tanda minus pada pangkat berarti kebalikan.</em></div>
+    <div data-ok="0"><span>\(-3^2=9\)</span><em>Salah. Basisnya 3, bukan −3, sehingga \(-3^2=-9\). Bandingkan dengan \((-3)^2=9\).</em></div>
+    <div data-ok="0"><span>\(\dfrac{5^7}{5^4}=5^{7/4}\)</span><em>Salah. Pembagian berarti pangkat dikurangi: \(5^{7-4}=5^3=125\).</em></div>
+    <div data-ok="0"><span>\(2\cdot3^2=6^2\)</span><em>Salah. \(2\cdot3^2=2\cdot9=18\), sedangkan \(6^2=36\). Pangkat hanya mengenai 3.</em></div>
+    <div data-ok="1"><span>\((2^3)^2=2^6\)</span><em>Benar. Pangkat dari pangkat dikalikan: 3 × 2 = 6.</em></div>
+  </template>
+
+  <h3 class="sub rv"><i>Latihan</i>Coba sendiri</h3>
+  <div class="try rv" data-sec="2" data-type="num" data-a="4" data-hint="Jumlahkan semua pangkat: \(3+(-5)+4\).">
+    <div class="tq">Hitung \(2^{3}\cdot2^{-5}\cdot2^{4}\).</div>
+    <details class="sol"><summary>Lihat pembahasan</summary><pre class="w static">
+2^{3}\cdot2^{-5}\cdot2^{4} | = | 2^{3+(-5)+4} | jumlahkan pangkat
+ | = | 2^{2} |
+ | = | 4 |
+</pre></details></div>
+  <div class="try rv" data-sec="2" data-type="num" data-a="9" data-hint="Ubah 9 dan 27 menjadi basis 3.">
+    <div class="tq">Hitung \(\dfrac{9^{2}\cdot27^{-1}}{3^{-1}}\).</div>
+    <details class="sol"><summary>Lihat pembahasan</summary><pre class="w static">
+\dfrac{9^{2}\cdot27^{-1}}{3^{-1}} | = | \dfrac{3^{4}\cdot3^{-3}}{3^{-1}} | 9 = 3², 27 = 3³
+ | = | 3^{4-3-(-1)} |
+ | = | 3^{2} |
+ | = | 9 |
+</pre></details></div>
+  <div class="try rv" data-sec="2" data-type="num" data-a="45" data-hint="\(3^{x+2}=3^x\cdot3^2\).">
+    <div class="tq">Jika \(3^{x}=5\), berapa nilai \(3^{x+2}\)?</div>
+    <details class="sol"><summary>Lihat pembahasan</summary><pre class="w static">
+3^{x+2} | = | 3^{x}\cdot3^{2} | pecah pangkat
+ | = | 5\cdot9 |
+ | = | 45 |
+</pre></details></div>
+</section>
+
+<!-- ================= K3 ================= -->
+<section class="sec s3" id="k3">
+  <div class="sh rv"><div class="num">3</div><div class="tx"><h2>Pangkat rasional dan akar</h2><p>Target: mengubah akar dan pangkat, menyederhanakan, dan merasionalkan penyebut.</p></div><div class="gl" aria-hidden="true">√</div></div>
+
+  <h3 class="sub rv" style="margin-top:0"><i>Konsep</i>Akar adalah pangkat pecahan</h3>
+  <p class="lead2">Agar \((a^{1/2})^2=a\) tetap benar, \(a^{1/2}\) haruslah \(\sqrt a\).</p>
+  <div class="rumus rv">\[ a^{\frac1n}=\sqrt[n]{a}\qquad a^{\frac mn}=\sqrt[n]{a^m}=\left(\sqrt[n]{a}\right)^m \qquad a^{-\frac mn}=\dfrac{1}{a^{m/n}} \]<small>Jika n genap, a harus ≥ 0. Hitung akarnya dulu, baru dipangkatkan, supaya bilangannya kecil.</small></div>
+
+  <div class="lab rv" id="matchLab">
+    <div class="tg">Interaktif · Cocokkan</div>
+    <p style="margin:0">Pilih bentuk pangkat di kiri, lalu pasangannya bentuk akar di kanan.</p>
+    <div class="mt" id="matchGrid"></div>
+    <p class="msg" id="matchMsg"></p>
+  </div>
+  <template id="matchData">
+    <div><span>\(a^{1/2}\)</span><span>\(\sqrt{a}\)</span></div>
+    <div><span>\(a^{2/3}\)</span><span>\(\sqrt[3]{a^2}\)</span></div>
+    <div><span>\(a^{3/2}\)</span><span>\(\sqrt{a^3}\)</span></div>
+    <div><span>\(a^{-1/2}\)</span><span>\(\dfrac{1}{\sqrt a}\)</span></div>
+    <div><span>\(a^{-2/3}\)</span><span>\(\dfrac{1}{\sqrt[3]{a^2}}\)</span></div>
+  </template>
+
+  <div class="ex rv"><div class="eh"><b>Contoh 5</b></div><div class="eq">Hitung (a) \(32^{3/5}\) (b) \(81^{-1/4}\)</div>
+<pre class="w">
+# a)
+32^{3/5} | = | (2^5)^{3/5} | 32 = 2⁵
+ | = | 2^{3} | 5 × 3/5 = 3
+ | = | 8 |
+# b)
+81^{-1/4} | = | (3^4)^{-1/4} | 81 = 3⁴
+ | = | 3^{-1} |
+ | = | \dfrac13 |
+</pre></div>
+
+  <h3 class="sub rv"><i>Konsep</i>Sifat bentuk akar</h3>
+  <div class="grid g2">
+    <div class="card rv"><h4>Kali dan bagi</h4>\[\sqrt a\cdot\sqrt b=\sqrt{ab}\qquad \dfrac{\sqrt a}{\sqrt b}=\sqrt{\dfrac ab}\]</div>
+    <div class="card rv"><h4>Keluarkan kuadrat sempurna</h4>\[\sqrt{a^2b}=a\sqrt b\]</div>
+    <div class="card rv"><h4>Jumlah akar sejenis</h4>\[p\sqrt c\pm q\sqrt c=(p\pm q)\sqrt c\]</div>
+    <div class="card rv"><h4>Sekawan</h4>\[(\sqrt a+\sqrt b)(\sqrt a-\sqrt b)=a-b\]</div>
+  </div>
+  <div class="ex rv"><div class="eh"><b>Contoh 6</b></div><div class="eq">Sederhanakan \(\sqrt{50}+\sqrt{18}-\sqrt{8}\).</div>
+<pre class="w">
+\sqrt{50}+\sqrt{18}-\sqrt{8} | = | \sqrt{25\cdot2}+\sqrt{9\cdot2}-\sqrt{4\cdot2} | cari kuadrat sempurna
+ | = | 5\sqrt2+3\sqrt2-2\sqrt2 | keluarkan akarnya
+ | = | (5+3-2)\sqrt2 | akar sejenis
+ | = | 6\sqrt2 |
+</pre></div>
+
+  <h3 class="sub rv"><i>Konsep</i>Merasionalkan penyebut</h3>
+  <p class="lead2">Hilangkan akar dari penyebut dengan mengalikan <b>sekawan</b>-nya. Sekawan \(a+\sqrt b\) adalah \(a-\sqrt b\).</p>
+  <div class="grid g3">
+    <div class="card rv"><h4>Penyebut \(\sqrt a\)</h4>Kalikan \(\dfrac{\sqrt a}{\sqrt a}\)</div>
+    <div class="card rv"><h4>Penyebut \(a\pm\sqrt b\)</h4>Kalikan \(\dfrac{a\mp\sqrt b}{a\mp\sqrt b}\)</div>
+    <div class="card rv"><h4>Penyebut \(\sqrt a\pm\sqrt b\)</h4>Kalikan \(\dfrac{\sqrt a\mp\sqrt b}{\sqrt a\mp\sqrt b}\)</div>
+  </div>
+  <div class="ex rv"><div class="eh"><b>Contoh 7</b></div><div class="eq">Rasionalkan (a) \(\dfrac{6}{\sqrt3}\) (b) \(\dfrac{5}{\sqrt7+\sqrt2}\) (c) \(\dfrac{2+\sqrt3}{2-\sqrt3}\)</div>
+<pre class="w">
+# a)
+\dfrac{6}{\sqrt3} | = | \dfrac{6}{\sqrt3}\cdot\dfrac{\sqrt3}{\sqrt3} | kalikan √3/√3
+ | = | \dfrac{6\sqrt3}{3} |
+ | = | 2\sqrt3 |
+# b)
+\dfrac{5}{\sqrt7+\sqrt2} | = | \dfrac{5}{\sqrt7+\sqrt2}\cdot\dfrac{\sqrt7-\sqrt2}{\sqrt7-\sqrt2} | kalikan sekawan
+ | = | \dfrac{5(\sqrt7-\sqrt2)}{7-2} | (a+b)(a−b) = a²−b²
+ | = | \sqrt7-\sqrt2 | 5 dicoret
+# c)
+\dfrac{2+\sqrt3}{2-\sqrt3} | = | \dfrac{(2+\sqrt3)(2+\sqrt3)}{(2-\sqrt3)(2+\sqrt3)} | kalikan sekawan 2+√3
+ | = | \dfrac{4+4\sqrt3+3}{4-3} |
+ | = | 7+4\sqrt3 |
+</pre></div>
+
+  <h3 class="sub rv"><i>Konsep</i>Akar bersarang</h3>
+  <div class="rumus rv">\[\sqrt{(p+q)+2\sqrt{pq}}=\sqrt p+\sqrt q\qquad (p\gt q)\]<small>Cari dua bilangan yang jumlahnya p+q dan hasil kalinya pq.</small></div>
+  <div class="ex rv"><div class="eh"><b>Contoh 8</b></div><div class="eq">Sederhanakan \(\sqrt{7+2\sqrt{10}}\).</div>
+<pre class="w">
+\sqrt{7+2\sqrt{10}} | = | \sqrt{(5+2)+2\sqrt{5\cdot2}} | jumlah 7, hasil kali 10 → 5 dan 2
+ | = | \sqrt5+\sqrt2 |
+</pre></div>
+
+  <h3 class="sub rv"><i>Latihan</i>Coba sendiri</h3>
+  <div class="try rv" data-sec="3" data-type="num" data-a="4" data-hint="\(8=2^3\), jadi \(8^{2/3}=2^{3\cdot2/3}\).">
+    <div class="tq">Hitung \(8^{2/3}\).</div>
+    <details class="sol"><summary>Lihat pembahasan</summary><pre class="w static">
+8^{2/3} | = | (2^3)^{2/3} | 8 = 2³
+ | = | 2^{2} |
+ | = | 4 |
+</pre></details></div>
+  <div class="try rv" data-sec="3" data-type="text" data-keys="√,+,−" data-ph="contoh: 5√2" data-a="2√3||2sqrt3" data-hint="\(\sqrt{75}=5\sqrt3\) dan \(\sqrt{27}=3\sqrt3\). Gunakan tombol √ untuk akar.">
+    <div class="tq">Sederhanakan \(\sqrt{75}-\sqrt{27}\).</div>
+    <details class="sol"><summary>Lihat pembahasan</summary><pre class="w static">
+\sqrt{75}-\sqrt{27} | = | \sqrt{25\cdot3}-\sqrt{9\cdot3} |
+ | = | 5\sqrt3-3\sqrt3 |
+ | = | 2\sqrt3 |
+</pre></details></div>
+  <div class="try rv" data-sec="3" data-type="text" data-keys="√" data-ph="contoh: 3√5" data-a="2√2||2sqrt2" data-hint="Kalikan dengan \(\frac{\sqrt2}{\sqrt2}\).">
+    <div class="tq">Rasionalkan \(\dfrac{4}{\sqrt2}\).</div>
+    <details class="sol"><summary>Lihat pembahasan</summary><pre class="w static">
+\dfrac{4}{\sqrt2} | = | \dfrac{4}{\sqrt2}\cdot\dfrac{\sqrt2}{\sqrt2} |
+ | = | \dfrac{4\sqrt2}{2} |
+ | = | 2\sqrt2 |
+</pre></details></div>
+  <div class="try rv" data-sec="3" data-type="text" data-keys="√,+,−" data-ph="contoh: 2+√5" data-a="3+√3||√3+3||3+sqrt3" data-hint="Kalikan sekawan penyebut, yaitu \(3+\sqrt3\).">
+    <div class="tq">Rasionalkan \(\dfrac{6}{3-\sqrt3}\).</div>
+    <details class="sol"><summary>Lihat pembahasan</summary><pre class="w static">
+\dfrac{6}{3-\sqrt3} | = | \dfrac{6}{3-\sqrt3}\cdot\dfrac{3+\sqrt3}{3+\sqrt3} | sekawan
+ | = | \dfrac{6(3+\sqrt3)}{9-3} |
+ | = | \dfrac{6(3+\sqrt3)}{6} |
+ | = | 3+\sqrt3 |
+</pre></details></div>
+</section>
+
+<!-- ================= K4 ================= -->
+<section class="sec s4" id="k4">
+  <div class="sh rv"><div class="num">4</div><div class="tx"><h2>Persamaan dan pertidaksamaan</h2><p>Target: menentukan nilai x pada bentuk eksponen.</p></div><div class="gl" aria-hidden="true">=</div></div>
+
+  <h3 class="sub rv" style="margin-top:0"><i>Konsep</i>Kunci utama</h3>
+  <div class="rumus rv">\[ a^{f(x)}=a^{g(x)}\ \Longrightarrow\ f(x)=g(x)\qquad (a\gt0,\ a\ne1) \]<small>Jika basisnya sama, eksponennya pasti sama.</small></div>
+  <p class="lead2">Pilih jenis persamaannya. Setiap jenis punya cara sendiri.</p>
+
+  <div class="tabset rv" data-tabs>
+    <div class="tabs2" role="tablist">
+      <button type="button" role="tab" aria-selected="true">Basis sama</button>
+      <button type="button" role="tab" aria-selected="false">Eksponen sama</button>
+      <button type="button" role="tab" aria-selected="false">Basis variabel</button>
+      <button type="button" role="tab" aria-selected="false">Bentuk kuadrat</button>
+    </div>
+    <div class="tp" role="tabpanel">
+      <div class="rumus">\[ a^{f(x)}=a^{p}\ \Rightarrow\ f(x)=p \]<small>Samakan basis dulu, lalu samakan eksponen.</small></div>
+      <div class="ex"><div class="eh"><b>Contoh 9</b></div><div class="eq">Tentukan \(x\) dari \(9^{x}=27^{x-1}\).</div>
+<pre class="w">
+9^{x} | = | 27^{x-1} |
+(3^2)^{x} | = | (3^3)^{x-1} | samakan basis menjadi 3
+3^{2x} | = | 3^{3x-3} | pangkat dari pangkat
+2x | = | 3x-3 | eksponen sama
+x | = | 3 |
+</pre></div>
+    </div>
+    <div class="tp" role="tabpanel" hidden>
+      <div class="rumus">\[ a^{f(x)}=b^{f(x)},\ a\ne b\ \Rightarrow\ f(x)=0 \]<small>Basis beda tapi eksponen sama: hanya sama jika eksponennya 0.</small></div>
+      <div class="ex"><div class="eh"><b>Contoh 10</b></div><div class="eq">Tentukan himpunan penyelesaian \(5^{x^2-4}=7^{x^2-4}\).</div>
+<pre class="w">
+5^{x^2-4} | = | 7^{x^2-4} | basis beda, eksponen sama
+x^2-4 | = | 0 | eksponen harus 0 (5⁰ = 7⁰ = 1)
+(x-2)(x+2) | = | 0 | faktorkan
+x | = | 2\ \text{atau}\ -2 |
+</pre></div>
+    </div>
+    <div class="tp" role="tabpanel" hidden>
+      <div class="rumus">\[ h(x)^{f(x)}=h(x)^{g(x)} \]<small>Periksa 4 kemungkinan: f = g; h = 1; h = 0 (eksponen positif); h = −1 (eksponen sama paritas).</small></div>
+      <div class="ex"><div class="eh"><b>Contoh 11</b></div><div class="eq">Tentukan HP dari \((x-2)^{x+1}=(x-2)^{2x-3}\).</div>
+<pre class="w">
+# ① Eksponen sama
+x+1 | = | 2x-3 |
+x | = | 4 |
+# ② Basis = 1
+x-2 | = | 1 |
+x | = | 3 | 1⁴ = 1³, benar
+# ③ Basis = 0, eksponen harus positif
+x-2 | = | 0 |
+x | = | 2 | eksponen 3 dan 1 positif, benar
+# ④ Basis = −1, eksponen harus sama paritas
+x-2 | = | -1 |
+x | = | 1 | eksponen 2 (genap) dan −1 (ganjil), ditolak
+# Kesimpulan
+\text{HP} | = | \{2,\,3,\,4\} |
+</pre></div>
+    </div>
+    <div class="tp" role="tabpanel" hidden>
+      <div class="rumus">\[ A(a^x)^2+B(a^x)+C=0\ \Rightarrow\ \text{misal }p=a^x\ (p\gt0) \]<small>Ubah menjadi persamaan kuadrat dalam p.</small></div>
+      <div class="ex"><div class="eh"><b>Contoh 12</b></div><div class="eq">Selesaikan \(4^{x}-5\cdot2^{x}+4=0\).</div>
+<pre class="w">
+4^{x}-5\cdot2^{x}+4 | = | 0 |
+(2^{x})^2-5\cdot2^{x}+4 | = | 0 | 4ˣ = (2ˣ)²
+p^2-5p+4 | = | 0 | misal p = 2ˣ, p &gt; 0
+(p-1)(p-4) | = | 0 | faktorkan
+p | = | 1\ \text{atau}\ 4 |
+2^{x} | = | 2^{0}\ \text{atau}\ 2^{2} | kembalikan p = 2ˣ
+x | = | 0\ \text{atau}\ 2 |
+</pre></div>
+    </div>
+  </div>
+
+  <h3 class="sub rv"><i>Konsep</i>Pertidaksamaan eksponen</h3>
+  <p class="lead2">Tanda pertidaksamaan bergantung pada basis. Pilih jenis basisnya.</p>
+  <div class="tabset lab rv" data-tabs>
+    <div class="tg">Interaktif · Arah tanda</div>
+    <div class="tabs2" role="tablist">
+      <button type="button" role="tab" aria-selected="true">Basis lebih dari 1</button>
+      <button type="button" role="tab" aria-selected="false">Basis antara 0 dan 1</button>
+    </div>
+    <div class="tp" role="tabpanel">
+      <div class="rumus">\[ a\gt1:\quad a^{f(x)}\gt a^{g(x)}\ \Leftrightarrow\ f(x)\gt g(x) \]<small>Fungsi naik, tanda tetap.</small></div>
+      <pre class="w static">
+2^{x-1} | \gt | 8 |
+2^{x-1} | \gt | 2^{3} | samakan basis
+x-1 | \gt | 3 | basis 2 &gt; 1, tanda tetap
+x | \gt | 4 |
+</pre>
+      <svg class="nl" viewBox="0 0 320 64" role="img" aria-label="Garis bilangan x lebih dari 4"><line class="ln" x1="10" y1="34" x2="310" y2="34"/><g class="tk" text-anchor="middle"><text x="50" y="58">2</text><text x="110" y="58">3</text><text x="170" y="58">4</text><text x="230" y="58">5</text><text x="290" y="58">6</text></g><line class="sh2" pathLength="1" x1="170" y1="34" x2="304" y2="34"/><circle class="dot" cx="170" cy="34" r="7"/></svg>
+    </div>
+    <div class="tp" role="tabpanel" hidden>
+      <div class="rumus">\[ 0\lt a\lt1:\quad a^{f(x)}\gt a^{g(x)}\ \Leftrightarrow\ f(x)\lt g(x) \]<small>Fungsi turun, tanda berbalik.</small></div>
+      <pre class="w static">
+\left(\dfrac12\right)^{x-1} | \gt | \dfrac18 |
+\left(\dfrac12\right)^{x-1} | \gt | \left(\dfrac12\right)^{3} | samakan basis
+x-1 | \lt | 3 | basis ½ &lt; 1, tanda berbalik
+x | \lt | 4 |
+</pre>
+      <svg class="nl" viewBox="0 0 320 64" role="img" aria-label="Garis bilangan x kurang dari 4"><line class="ln" x1="10" y1="34" x2="310" y2="34"/><g class="tk" text-anchor="middle"><text x="50" y="58">2</text><text x="110" y="58">3</text><text x="170" y="58">4</text><text x="230" y="58">5</text><text x="290" y="58">6</text></g><line class="sh2" pathLength="1" x1="170" y1="34" x2="16" y2="34"/><circle class="dot" cx="170" cy="34" r="7"/></svg>
+    </div>
+  </div>
+  <div class="ex rv"><div class="eh"><b>Contoh 13</b></div><div class="eq">Tentukan HP dari \(4^{x}-6\cdot2^{x}+8\lt0\).</div>
+<pre class="w">
+4^{x}-6\cdot2^{x}+8 | \lt | 0 |
+p^2-6p+8 | \lt | 0 | misal p = 2ˣ
+(p-2)(p-4) | \lt | 0 | faktorkan
+2 | \lt | p\lt4 | di antara kedua akar
+2^{1} | \lt | 2^{x}\lt2^{2} | kembalikan p = 2ˣ
+1 | \lt | x\lt2 | basis 2 &gt; 1, tanda tetap
+</pre></div>
+
+  <h3 class="sub rv"><i>Latihan</i>Coba sendiri</h3>
+  <div class="try rv" data-sec="4" data-type="num" data-a="4" data-hint="Tulis \(32=2^5\), lalu samakan eksponen.">
+    <div class="tq">Tentukan \(x\) dari \(2^{x+1}=32\).</div>
+    <details class="sol"><summary>Lihat pembahasan</summary><pre class="w static">
+2^{x+1} | = | 32 |
+2^{x+1} | = | 2^{5} | 32 = 2⁵
+x+1 | = | 5 | eksponen sama
+x | = | 4 |
+</pre></details></div>
+  <div class="try rv" data-sec="4" data-type="num" data-a="-1" data-hint="\(\frac1{27}=3^{-3}\).">
+    <div class="tq">Tentukan \(x\) dari \(3^{2x-1}=\dfrac1{27}\).</div>
+    <details class="sol"><summary>Lihat pembahasan</summary><pre class="w static">
+3^{2x-1} | = | \dfrac1{27} |
+3^{2x-1} | = | 3^{-3} | 1/27 = 3⁻³
+2x-1 | = | -3 |
+x | = | -1 |
+</pre></details></div>
+  <div class="try rv" data-sec="4" data-type="set" data-a="0,1" data-ph="contoh: 2,5" data-hint="Misal \(p=3^x\). Persamaannya menjadi \(p^2-4p+3=0\). Tulis nilai x dipisah koma.">
+    <div class="tq">Tentukan himpunan penyelesaian \(9^{x}-4\cdot3^{x}+3=0\).</div>
+    <details class="sol"><summary>Lihat pembahasan</summary><pre class="w static">
+9^{x}-4\cdot3^{x}+3 | = | 0 |
+p^2-4p+3 | = | 0 | misal p = 3ˣ
+(p-1)(p-3) | = | 0 |
+3^{x} | = | 3^{0}\ \text{atau}\ 3^{1} |
+x | = | 0\ \text{atau}\ 1 |
+</pre></details></div>
+  <div class="try rv" data-sec="4" data-type="text" data-keys="≤,≥,−,/" data-ph="contoh: x≥2" data-a="x<=3||3>=x" data-hint="Basis \(\frac12\) kurang dari 1, jadi tanda berbalik. \(\frac14=\left(\frac12\right)^2\).">
+    <div class="tq">Tentukan penyelesaian \(\left(\dfrac12\right)^{x-1}\ge\dfrac14\). Tulis seperti x≤5.</div>
+    <details class="sol"><summary>Lihat pembahasan</summary><pre class="w static">
+\left(\dfrac12\right)^{x-1} | \ge | \left(\dfrac12\right)^{2} | 1/4 = (½)²
+x-1 | \le | 2 | basis &lt; 1, tanda berbalik
+x | \le | 3 |
+</pre></details></div>
+</section>
+
+<!-- ================= K5 ================= -->
+<section class="sec s5" id="k5">
+  <div class="sh rv"><div class="num">5</div><div class="tx"><h2>Fungsi eksponen</h2><p>Target: membaca sifat dan menggambar grafik fungsi eksponen.</p></div><div class="gl" aria-hidden="true">ƒ</div></div>
+
+  <h3 class="sub rv" style="margin-top:0"><i>Konsep</i>Definisi</h3>
+  <div class="rumus rv">\[ f(x)=a^{x},\qquad a\gt0,\ a\ne1 \]<small>a ≠ 1 karena 1ˣ selalu 1 (garis lurus). a &gt; 0 agar nilainya real untuk semua x.</small></div>
+
+  <div class="lab rv">
+    <div class="tg">Interaktif · Studio grafik</div>
+    <h4>Ubah basis, geser, dan lihat grafik \(y=a^{x-h}+k\)</h4>
+    <div class="row"><label for="gA">Basis a = <b id="gAV">2,0</b></label><input type="range" id="gA" min="0.2" max="4" step="0.1" value="2"></div>
+    <div class="row"><label for="gH">Geser kanan h = <b id="gHV">0</b></label><input type="range" id="gH" min="-3" max="3" step="1" value="0"></div>
+    <div class="row"><label for="gK">Geser atas k = <b id="gKV">0</b></label><input type="range" id="gK" min="-3" max="3" step="1" value="0"></div>
+    <div class="row"><button type="button" class="b ghost sm" id="gMir" aria-pressed="false">Cermin y-axis: mati</button><button type="button" class="b ghost sm" id="gReset">Reset</button></div>
+    <canvas id="gCanvas" role="img" aria-label="Grafik fungsi eksponen"></canvas>
+    <div class="tiles" id="gInfo"></div>
+  </div>
+
+  <h3 class="sub rv"><i>Konsep</i>Sifat grafik</h3>
+  <div class="grid g2">
+    <div class="card rv"><h4>Basis \(a\gt1\): grafik naik</h4><p style="margin:6px 0 0">Makin besar x, makin besar y. Mendekati sumbu-X di sebelah kiri.</p></div>
+    <div class="card rv"><h4>Basis \(0\lt a\lt1\): grafik turun</h4><p style="margin:6px 0 0">Makin besar x, makin kecil y. Mendekati sumbu-X di sebelah kanan.</p></div>
+  </div>
+  <div class="note rv"><b class="tg">Selalu berlaku</b><p style="margin-top:8px">Melalui titik \((0,1)\) dan \((1,a)\). Tidak memotong sumbu-X. Asimtot datar \(y=0\). Daerah asal: semua bilangan real. Daerah hasil: \(y\gt0\).</p></div>
+  <div class="tabset rv" data-tabs>
+    <div class="tabs2" role="tablist">
+      <button type="button" role="tab" aria-selected="true">Geser atas/bawah</button>
+      <button type="button" role="tab" aria-selected="false">Geser kanan/kiri</button>
+      <button type="button" role="tab" aria-selected="false">Pencerminan</button>
+    </div>
+    <div class="tp" role="tabpanel"><div class="rumus">\[y=a^{x}+k\]<small>Geser k satuan ke atas (bawah jika k negatif). Asimtot y = k. Memotong sumbu-Y di (0, 1+k).</small></div></div>
+    <div class="tp" role="tabpanel" hidden><div class="rumus">\[y=a^{x-h}\]<small>Geser h satuan ke kanan (kiri jika h negatif). Asimtot tetap y = 0. Memotong sumbu-Y di (0, a⁻ʰ).</small></div></div>
+    <div class="tp" role="tabpanel" hidden><div class="rumus">\[y=-a^{x}\ \text{(cermin sumbu-X)}\qquad y=a^{-x}\ \text{(cermin sumbu-Y)}\]<small>Cermin sumbu-X: grafik di bawah sumbu-X. Cermin sumbu-Y: naik berubah jadi turun.</small></div></div>
+  </div>
+  <div class="ex rv"><div class="eh"><b>Contoh 14</b></div><div class="eq">Untuk \(f(x)=2^{x-1}+3\), tentukan asimtot, titik potong sumbu-Y, dan daerah hasil.</div>
+<pre class="w">
+# Asimtot
+y | = | 3 | grafik 2ˣ⁻¹ digeser 3 ke atas
+# Titik potong sumbu-Y, substitusi x = 0
+f(0) | = | 2^{0-1}+3 |
+ | = | \dfrac12+3 |
+ | = | 3\dfrac12 | titik (0, 3½)
+# Daerah hasil
+R_f | = | \{\,y\mid y\gt3\,\} | di atas asimtot
+</pre></div>
+
+  <h3 class="sub rv"><i>Latihan</i>Coba sendiri</h3>
+  <div class="try rv" data-sec="5" data-type="num" data-a="-4" data-hint="Asimtot \(y=2^x\) adalah \(y=0\). Digeser 4 ke bawah.">
+    <div class="tq">Persamaan asimtot datar \(y=2^{x}-4\) adalah \(y=\ \)...</div>
+    <details class="sol"><summary>Lihat pembahasan</summary><pre class="w static">
+y | = | 2^{x}-4 | digeser 4 ke bawah
+\text{asimtot}\ y | = | -4 |
+</pre></details></div>
+  <div class="try rv" data-sec="5" data-type="num" data-a="3" data-hint="Substitusi \(x=0\).">
+    <div class="tq">Grafik \(f(x)=3^{x}+2\) memotong sumbu-Y di \((0,\ \ldots)\). Berapa nilai y-nya?</div>
+    <details class="sol"><summary>Lihat pembahasan</summary><pre class="w static">
+f(0) | = | 3^{0}+2 |
+ | = | 1+2 |
+ | = | 3 |
+</pre></details></div>
+  <div class="try rv" data-sec="5" data-type="text" data-ph="naik atau turun" data-a="turun" data-hint="Lihat basisnya. Apakah antara 0 dan 1?">
+    <div class="tq">Grafik \(y=\left(\dfrac13\right)^{x}\) itu naik atau turun? Ketik jawabanmu.</div>
+    <details class="sol"><summary>Lihat pembahasan</summary><pre class="w static">
+\text{basis}\ a | = | \dfrac13 |
+0 | \lt | a\lt1 | maka grafik turun
+</pre></details></div>
+</section>
+
+<!-- ================= K6 ================= -->
+<section class="sec s6" id="k6">
+  <div class="sh rv"><div class="num">6</div><div class="tx"><h2>Pertumbuhan dan peluruhan</h2><p>Target: memodelkan bunga, populasi, penyusutan, dan waktu paruh.</p></div><div class="gl" aria-hidden="true">%</div></div>
+
+  <h3 class="sub rv" style="margin-top:0"><i>Konsep</i>Perubahan dengan persentase tetap</h3>
+  <p class="lead2">Jika sesuatu berubah dengan persentase yang sama tiap periode, nilainya mengikuti fungsi eksponen. Pilih modelnya.</p>
+  <div class="tabset rv" data-tabs>
+    <div class="tabs2" role="tablist">
+      <button type="button" role="tab" aria-selected="true">Pertumbuhan</button>
+      <button type="button" role="tab" aria-selected="false">Peluruhan</button>
+      <button type="button" role="tab" aria-selected="false">Berlipat ganda</button>
+      <button type="button" role="tab" aria-selected="false">Waktu paruh</button>
+    </div>
+    <div class="tp" role="tabpanel"><div class="rumus">\[M_t=M_0\,(1+r)^t\]<small>M₀ nilai awal, r laju per periode (10% = 0,10), t banyak periode. Contoh: bunga majemuk, populasi.</small></div></div>
+    <div class="tp" role="tabpanel" hidden><div class="rumus">\[M_t=M_0\,(1-r)^t\]<small>Contoh: penyusutan harga kendaraan, obat dalam darah.</small></div></div>
+    <div class="tp" role="tabpanel" hidden><div class="rumus">\[N=N_0\cdot k^{\,t/T}\]<small>k faktor lipat (2 untuk menggandakan), T lama satu periode, satuan t sama dengan T.</small></div></div>
+    <div class="tp" role="tabpanel" hidden><div class="rumus">\[N=N_0\left(\dfrac12\right)^{t/T}\]<small>T waktu paruh, yaitu waktu agar jumlahnya tinggal setengah.</small></div></div>
+  </div>
+
+  <div class="lab rv">
+    <div class="tg">Interaktif · Kalkulator</div>
+    <div class="tabs2" role="group" aria-label="Jenis perhitungan"><button type="button" class="cm" data-m="up" aria-pressed="true">Pertumbuhan</button><button type="button" class="cm" data-m="down" aria-pressed="false">Peluruhan</button><button type="button" class="cm" data-m="half" aria-pressed="false">Waktu paruh</button></div>
+    <div class="row">
+      <span><label for="cM">Nilai awal</label><br><input class="fld" id="cM" type="number" value="5000000" min="0" step="any" style="width:150px"></span>
+      <span id="cRw"><label for="cR" id="cRl">Laju per periode (%)</label><br><input class="fld" id="cR" type="number" value="10" min="0" step="any" style="width:130px"></span>
+      <span><label for="cT" id="cTl">Banyak periode</label><br><input class="fld" id="cT" type="number" value="3" min="0" step="any" style="width:130px"></span>
+    </div>
+    <div class="tiles"><div class="tile"><div class="k">Faktor per periode</div><div class="v" id="cF"></div></div><div class="tile"><div class="k">Nilai akhir</div><div class="v" id="cOut"></div></div></div>
+    <div id="cTex" style="margin:10px 0;overflow-x:auto"></div>
+    <canvas id="cCanvas" role="img" aria-label="Grafik perubahan nilai terhadap waktu" style="height:240px"></canvas>
+  </div>
+
+  <h3 class="sub rv"><i>Contoh</i>Dikerjakan bertahap</h3>
+  <div class="ex rv"><div class="eh"><b>Contoh 15</b></div><div class="eq">Uang Rp5.000.000 disimpan dengan bunga majemuk 10% per tahun. Berapa saldo setelah 3 tahun?</div>
+<pre class="w">
+M_t | = | M_0(1+r)^t | rumus pertumbuhan
+M_3 | = | 5\,000\,000(1+0{,}10)^3 | M₀ = 5.000.000, r = 0,10, t = 3
+ | = | 5\,000\,000\times1{,}331 | 1,1³ = 1,331
+ | = | 6\,655\,000 | saldo Rp6.655.000
+</pre></div>
+  <div class="ex rv"><div class="eh"><b>Contoh 16</b></div><div class="eq">Sebuah koloni berisi 500 bakteri yang menggandakan diri setiap 3 jam. Berapa jumlahnya setelah 12 jam?</div>
+<pre class="w">
+N | = | N_0\cdot2^{t/T} | berlipat dua tiap T jam
+ | = | 500\cdot2^{12/3} | t = 12, T = 3
+ | = | 500\cdot2^{4} |
+ | = | 500\cdot16 |
+ | = | 8\,000 | bakteri
+</pre></div>
+  <div class="ex rv"><div class="eh"><b>Contoh 17</b></div><div class="eq">Zat radioaktif 80 gram memiliki waktu paruh 5 hari. Berapa gram tersisa setelah 20 hari?</div>
+<pre class="w">
+N | = | N_0\left(\dfrac12\right)^{t/T} | rumus waktu paruh
+ | = | 80\left(\dfrac12\right)^{20/5} | t = 20, T = 5
+ | = | 80\left(\dfrac12\right)^{4} |
+ | = | 80\cdot\dfrac1{16} |
+ | = | 5 | gram
+</pre></div>
+  <div class="note rv"><b class="tg">Hati-hati</b> Pertumbuhan 10% berarti faktor <b>1,10</b>, bukan 0,10. Penyusutan 20% selama 2 tahun faktornya \(0{,}8^2=0{,}64\), jadi turun 36%, bukan 40%.</div>
+
+  <h3 class="sub rv"><i>Latihan</i>Coba sendiri</h3>
+  <div class="try rv" data-sec="6" data-type="num" data-a="2420000" data-hint="\(2\,000\,000\times(1{,}1)^2\). Tulis angka tanpa titik juga boleh.">
+    <div class="tq">Modal Rp2.000.000 dibungakan majemuk 10% per tahun. Berapa saldo (rupiah) setelah 2 tahun?</div>
+    <details class="sol"><summary>Lihat pembahasan</summary><pre class="w static">
+M_2 | = | 2\,000\,000(1+0{,}10)^2 |
+ | = | 2\,000\,000\times1{,}21 |
+ | = | 2\,420\,000 |
+</pre></details></div>
+  <div class="try rv" data-sec="6" data-type="num" data-a="4" data-hint="12 hari ÷ 3 hari = 4 periode.">
+    <div class="tq">Zat 64 gram dengan waktu paruh 3 hari. Berapa gram tersisa setelah 12 hari?</div>
+    <details class="sol"><summary>Lihat pembahasan</summary><pre class="w static">
+N | = | 64\left(\dfrac12\right)^{12/3} |
+ | = | 64\left(\dfrac12\right)^{4} |
+ | = | \dfrac{64}{16} |
+ | = | 4 |
+</pre></details></div>
+  <div class="try rv" data-sec="6" data-type="num" data-a="8.1" data-hint="Faktor penyusutan \(1-0{,}10=0{,}9\). Kalikan 10 dengan \(0{,}9^2\).">
+    <div class="tq">Harga laptop Rp10 juta turun 10% per tahun. Berapa harganya (juta rupiah) setelah 2 tahun?</div>
+    <details class="sol"><summary>Lihat pembahasan</summary><pre class="w static">
+M_2 | = | 10(1-0{,}10)^2 |
+ | = | 10\times0{,}81 |
+ | = | 8{,}1 | juta rupiah
+</pre></details></div>
+</section>
+
+<!-- ================= RUMUS ================= -->
+<section class="sec s7" id="rumus">
+  <div class="sh rv"><div class="num">Σ</div><div class="tx"><h2>Ringkasan rumus</h2><p>Simpan halaman ini sebagai contekan belajar.</p></div></div>
+  <div class="sheet">
+    <div class="card s1 rv"><h4>1 · Definisi</h4><div class="bd">\[a^n=a\times\cdots\times a\quad(n\text{ faktor})\]\[a^0=1\qquad a^{-n}=\dfrac1{a^n}\]</div></div>
+    <div class="card s2 rv"><h4>2 · Sifat eksponen</h4><div class="bd">\[a^m\cdot a^n=a^{m+n}\qquad \dfrac{a^m}{a^n}=a^{m-n}\]\[(a^m)^n=a^{mn}\qquad (ab)^n=a^nb^n\]\[\left(\dfrac ab\right)^n=\dfrac{a^n}{b^n}\]</div></div>
+    <div class="card s3 rv"><h4>3 · Akar</h4><div class="bd">\[a^{m/n}=\sqrt[n]{a^m}\qquad\sqrt a\cdot\sqrt b=\sqrt{ab}\]\[\dfrac{c}{\sqrt a}=\dfrac{c\sqrt a}{a}\qquad \dfrac{c}{\sqrt a\pm\sqrt b}=\dfrac{c(\sqrt a\mp\sqrt b)}{a-b}\]</div></div>
+    <div class="card s4 rv"><h4>4 · Persamaan</h4><div class="bd">\[a^{f}=a^{g}\Rightarrow f=g\qquad a^{f}=b^{f}\Rightarrow f=0\]\[a\gt1:\ \text{tanda tetap}\qquad 0\lt a\lt1:\ \text{tanda berbalik}\]</div></div>
+    <div class="card s5 rv"><h4>5 · Fungsi</h4><div class="bd">\[f(x)=a^x,\ \text{melalui }(0,1)\]\[y=a^{x-h}+k:\ \text{asimtot }y=k\]</div></div>
+    <div class="card s6 rv"><h4>6 · Terapan</h4><div class="bd">\[M_t=M_0(1\pm r)^t\]\[N=N_0\,k^{t/T}\qquad N=N_0\left(\tfrac12\right)^{t/T}\]</div></div>
+  </div>
+</section>
+
+<!-- ================= LATIHAN ================= -->
+<section class="sec s7" id="latihan">
+  <div class="sh rv"><div class="num">✎</div><div class="tx"><h2>Latihan campuran</h2><p>Jawab, periksa, lalu buka pembahasan. Setiap jawaban benar menambah poin.</p></div></div>
+  <div class="filters" id="filters">
+    <button type="button" class="b sm" data-f="all" aria-pressed="true">Semua</button>
+    <button type="button" class="b ghost sm" data-f="Dasar" aria-pressed="false">Dasar</button>
+    <button type="button" class="b ghost sm" data-f="Sedang" aria-pressed="false">Sedang</button>
+    <button type="button" class="b ghost sm" data-f="HOTS" aria-pressed="false">HOTS</button>
+  </div>
+
+  <div class="try" data-sec="L" data-lv="Dasar" data-type="num" data-a="5" data-hint="Jumlahkan pangkat: \(2+(-4)+3\).">
+    <div class="tq">1. Hitung \(5^{2}\cdot5^{-4}\cdot5^{3}\).</div>
+    <details class="sol"><summary>Lihat pembahasan</summary><pre class="w static">
+5^{2}\cdot5^{-4}\cdot5^{3} | = | 5^{2-4+3} |
+ | = | 5^{1} |
+ | = | 5 |
+</pre></details></div>
+  <div class="try" data-sec="L" data-lv="Dasar" data-type="num" data-a="9" data-hint="\((3^2)^3=3^6\).">
+    <div class="tq">2. Hitung \(\dfrac{(3^2)^3}{3^4}\).</div>
+    <details class="sol"><summary>Lihat pembahasan</summary><pre class="w static">
+\dfrac{(3^2)^3}{3^4} | = | \dfrac{3^{6}}{3^{4}} |
+ | = | 3^{2} |
+ | = | 9 |
+</pre></details></div>
+  <div class="try" data-sec="L" data-lv="Dasar" data-type="num" data-a="17" data-hint="\(27=3^3\) dan \(16=2^4\).">
+    <div class="tq">3. Hitung \(27^{2/3}+16^{3/4}\).</div>
+    <details class="sol"><summary>Lihat pembahasan</summary><pre class="w static">
+27^{2/3}+16^{3/4} | = | (3^3)^{2/3}+(2^4)^{3/4} |
+ | = | 3^2+2^3 |
+ | = | 9+8 |
+ | = | 17 |
+</pre></details></div>
+  <div class="try" data-sec="L" data-lv="Dasar" data-type="text" data-keys="√" data-ph="contoh: 4√3" data-a="3√3||3sqrt3" data-hint="\(\sqrt{48}=4\sqrt3\), \(\sqrt{27}=3\sqrt3\), \(\sqrt{12}=2\sqrt3\).">
+    <div class="tq">4. Sederhanakan \(\sqrt{48}-\sqrt{27}+\sqrt{12}\).</div>
+    <details class="sol"><summary>Lihat pembahasan</summary><pre class="w static">
+\sqrt{48}-\sqrt{27}+\sqrt{12} | = | 4\sqrt3-3\sqrt3+2\sqrt3 |
+ | = | (4-3+2)\sqrt3 |
+ | = | 3\sqrt3 |
+</pre></details></div>
+  <div class="try" data-sec="L" data-lv="Sedang" data-type="num" data-a="7" data-hint="\(8=2^3\) dan \(4=2^2\).">
+    <div class="tq">5. Tentukan \(x\) dari \(8^{x-1}=4^{x+2}\).</div>
+    <details class="sol"><summary>Lihat pembahasan</summary><pre class="w static">
+8^{x-1} | = | 4^{x+2} |
+2^{3(x-1)} | = | 2^{2(x+2)} | samakan basis 2
+3x-3 | = | 2x+4 |
+x | = | 7 |
+</pre></details></div>
+  <div class="try" data-sec="L" data-lv="Sedang" data-type="text" data-keys="√,+,−" data-ph="contoh: 2√3+2" data-a="2√5+2√2||2√2+2√5||2sqrt5+2sqrt2" data-hint="Kalikan sekawan \(\sqrt5+\sqrt2\). Penyebut menjadi \(5-2=3\).">
+    <div class="tq">6. Rasionalkan \(\dfrac{6}{\sqrt5-\sqrt2}\).</div>
+    <details class="sol"><summary>Lihat pembahasan</summary><pre class="w static">
+\dfrac{6}{\sqrt5-\sqrt2} | = | \dfrac{6}{\sqrt5-\sqrt2}\cdot\dfrac{\sqrt5+\sqrt2}{\sqrt5+\sqrt2} |
+ | = | \dfrac{6(\sqrt5+\sqrt2)}{5-2} |
+ | = | 2(\sqrt5+\sqrt2) |
+ | = | 2\sqrt5+2\sqrt2 |
+</pre></details></div>
+  <div class="try" data-sec="L" data-lv="Sedang" data-type="set" data-a="0,2" data-ph="contoh: 1,4" data-hint="Misal \(p=3^x\): \(p^2-10p+9=0\).">
+    <div class="tq">7. Tentukan HP dari \(3^{2x}-10\cdot3^{x}+9=0\).</div>
+    <details class="sol"><summary>Lihat pembahasan</summary><pre class="w static">
+3^{2x}-10\cdot3^{x}+9 | = | 0 |
+p^2-10p+9 | = | 0 | misal p = 3ˣ
+(p-1)(p-9) | = | 0 |
+3^{x} | = | 3^0\ \text{atau}\ 3^2 |
+x | = | 0\ \text{atau}\ 2 |
+</pre></details></div>
+  <div class="try" data-sec="L" data-lv="Sedang" data-type="text" data-keys="≤,≥,−,/" data-ph="contoh: x≥1/2" data-a="x<=-1/2||x<=-0.5||-1/2>=x" data-hint="\(\frac1{16}=2^{-4}\). Basis 2 lebih dari 1, tanda tetap.">
+    <div class="tq">8. Tentukan penyelesaian \(2^{2x-3}\le\dfrac1{16}\).</div>
+    <details class="sol"><summary>Lihat pembahasan</summary><pre class="w static">
+2^{2x-3} | \le | \dfrac1{16} |
+2^{2x-3} | \le | 2^{-4} |
+2x-3 | \le | -4 | basis 2 &gt; 1, tanda tetap
+x | \le | -\dfrac12 |
+</pre></details></div>
+  <div class="try" data-sec="L" data-lv="Sedang" data-type="num" data-a="12800" data-hint="2 jam = 120 menit, jadi ada 120 ÷ 20 periode.">
+    <div class="tq">9. Ada 200 bakteri yang menggandakan diri tiap 20 menit. Berapa jumlahnya setelah 2 jam?</div>
+    <details class="sol"><summary>Lihat pembahasan</summary><pre class="w static">
+N | = | 200\cdot2^{120/20} | 2 jam = 120 menit
+ | = | 200\cdot2^{6} |
+ | = | 200\cdot64 |
+ | = | 12\,800 |
+</pre></details></div>
+  <div class="try" data-sec="L" data-lv="HOTS" data-type="num" data-a="7" data-hint="Kuadratkan kedua ruas: \((2^x+2^{-x})^2\).">
+    <div class="tq">10. Jika \(2^{x}+2^{-x}=3\), hitung \(4^{x}+4^{-x}\).</div>
+    <details class="sol"><summary>Lihat pembahasan</summary><pre class="w static">
+(2^x+2^{-x})^2 | = | 3^2 | kuadratkan
+4^x+2\cdot2^x\cdot2^{-x}+4^{-x} | = | 9 |
+4^x+2+4^{-x} | = | 9 | 2ˣ · 2⁻ˣ = 1
+4^x+4^{-x} | = | 7 |
+</pre></details></div>
+  <div class="try" data-sec="L" data-lv="HOTS" data-type="num" data-a="18" data-hint="Pangkatkan tiga: \((a+b)^3=a^3+b^3+3ab(a+b)\) dengan \(ab=1\).">
+    <div class="tq">11. Jika \(2^{x}+2^{-x}=3\), hitung \(8^{x}+8^{-x}\).</div>
+    <details class="sol"><summary>Lihat pembahasan</summary><pre class="w static">
+(2^x+2^{-x})^3 | = | 3^3 | pangkatkan tiga
+8^x+8^{-x}+3(2^x+2^{-x}) | = | 27 | ab = 1
+8^x+8^{-x}+9 | = | 27 |
+8^x+8^{-x} | = | 18 |
+</pre></details></div>
+  <div class="try" data-sec="L" data-lv="HOTS" data-type="set" data-a="-2,0,2,3" data-ph="contoh: 1,2,3" data-hint="Hasil pangkat bernilai 1 jika eksponen 0, basis 1, atau basis −1 dengan eksponen genap.">
+    <div class="tq">12. Tentukan HP dari \((x^2-3x+1)^{x+2}=1\).</div>
+    <details class="sol"><summary>Lihat pembahasan</summary><pre class="w static">
+# ① Eksponen = 0
+x+2 | = | 0 |
+x | = | -2 | basis 11 ≠ 0, sah
+# ② Basis = 1
+x^2-3x+1 | = | 1 |
+x(x-3) | = | 0 |
+x | = | 0\ \text{atau}\ 3 |
+# ③ Basis = −1, eksponen genap
+x^2-3x+2 | = | 0 |
+x | = | 1\ \text{atau}\ 2 | x=1: eksponen 3 ganjil, ditolak. x=2: eksponen 4 genap, diterima
+# Kesimpulan
+\text{HP} | = | \{-2,\,0,\,2,\,3\} |
+</pre></details></div>
+</section>
+
+<!-- ================= KUIS ================= -->
+<section class="sec s7" id="kuis">
+  <div class="sh rv"><div class="num">?</div><div class="tx"><h2>Kuis akhir</h2><p>10 soal pilihan ganda. Pembahasan muncul setelah kamu memilih.</p></div></div>
+  <div class="qz rv" id="quiz"></div>
+</section>
+</main>
+
+<template id="quizData">
+  <div data-a="2"><p>Bentuk paling sederhana dari \(\dfrac{(a^3b^{-2})^2}{(ab^{-1})^3}\) adalah ...</p><ol><li>\(a^3b\)</li><li>\(\dfrac{a^9}{b^7}\)</li><li>\(\dfrac{a^3}{b}\)</li><li>\(\dfrac{b}{a^3}\)</li></ol><em>Pembilang \(a^6b^{-4}\), penyebut \(a^3b^{-3}\). Hasil bagi: \(a^{3}b^{-1}=\dfrac{a^3}{b}\).</em></div>
+  <div data-a="2"><p>Nilai \(27^{2/3}+16^{3/4}\) adalah ...</p><ol><li>13</li><li>15</li><li>17</li><li>19</li></ol><em>\(27^{2/3}=9\) dan \(16^{3/4}=8\). Jumlahnya 17.</em></div>
+  <div data-a="2"><p>\(\sqrt{48}-\sqrt{27}+\sqrt{12}=\) ...</p><ol><li>\(\sqrt3\)</li><li>\(2\sqrt3\)</li><li>\(3\sqrt3\)</li><li>\(4\sqrt3\)</li></ol><em>\(4\sqrt3-3\sqrt3+2\sqrt3=3\sqrt3\).</em></div>
+  <div data-a="0"><p>Bentuk rasional dari \(\dfrac{6}{\sqrt5-\sqrt2}\) adalah ...</p><ol><li>\(2\sqrt5+2\sqrt2\)</li><li>\(2\sqrt5-2\sqrt2\)</li><li>\(6\sqrt5+6\sqrt2\)</li><li>\(\sqrt5+\sqrt2\)</li></ol><em>Kalikan sekawan: \(\dfrac{6(\sqrt5+\sqrt2)}{5-2}=2\sqrt5+2\sqrt2\).</em></div>
+  <div data-a="1"><p>Nilai \(x\) yang memenuhi \(3^{2x-1}=27\) adalah ...</p><ol><li>1</li><li>2</li><li>3</li><li>4</li></ol><em>\(27=3^3\), maka \(2x-1=3\) sehingga \(x=2\).</em></div>
+  <div data-a="1"><p>Jumlah akar-akar \(2^{2x}-6\cdot2^{x}+8=0\) adalah ...</p><ol><li>2</li><li>3</li><li>4</li><li>6</li></ol><em>Misal \(p=2^x\): \(p^2-6p+8=0\), \(p=2\) atau \(4\), sehingga \(x=1\) atau \(2\). Jumlahnya 3.</em></div>
+  <div data-a="1"><p>Penyelesaian \(\left(\dfrac12\right)^{x-1}\lt\dfrac18\) adalah ...</p><ol><li>\(x\lt4\)</li><li>\(x\gt4\)</li><li>\(x\lt2\)</li><li>\(x\gt2\)</li></ol><em>\(\frac18=\left(\frac12\right)^3\). Basis kurang dari 1, tanda berbalik: \(x-1\gt3\), jadi \(x\gt4\).</em></div>
+  <div data-a="1"><p>Pernyataan yang benar tentang grafik \(f(x)=\left(\dfrac13\right)^x\) adalah ...</p><ol><li>Naik dan memotong sumbu-X di \((1,0)\)</li><li>Turun, melalui \((0,1)\), tidak menyentuh sumbu-X</li><li>Naik dan melalui \((0,3)\)</li><li>Turun dan memotong sumbu-Y di \((0,0)\)</li></ol><em>Basis \(\frac13\) di antara 0 dan 1, grafik turun. \(a^0=1\), jadi melalui \((0,1)\). Nilainya selalu positif.</em></div>
+  <div data-a="2"><p>Awalnya 200 bakteri, menggandakan diri tiap 20 menit. Setelah 2 jam jumlahnya ...</p><ol><li>1.200</li><li>2.400</li><li>12.800</li><li>25.600</li></ol><em>2 jam = 6 periode. \(200\cdot2^6=12.800\).</em></div>
+  <div data-a="1"><p>Jika \(2^x+2^{-x}=3\), maka \(4^x+4^{-x}=\) ...</p><ol><li>5</li><li>7</li><li>9</li><li>11</li></ol><em>Kuadratkan: \(4^x+2+4^{-x}=9\), jadi hasilnya 7.</em></div>
+</template>
+
+<div class="toast" id="toast" role="status"></div>
+<footer><div class="wrap">Bahan ajar Eksponen · Matematika Kelas X (Fase E). Disusun mengacu pada capaian pembelajaran Fase E Kurikulum Merdeka.</div></footer>
+
+<script>
+(function(){
+'use strict';
+var $=function(id){return document.getElementById(id)};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+var nf=new Intl.NumberFormat('id-ID',{maximumFractionDigits:3});
+var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e}
+function css(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim()}
+
+/* ---------- MathJax ---------- */
+var tq=new Promise(function(res){(function chk(n){
+  if(window.MathJax&&MathJax.startup&&MathJax.startup.promise){MathJax.startup.promise.then(res,res)}
+  else if(n>240){res()} else setTimeout(function(){chk(n+1)},50);})(0)});
+function typeset(els){
+  tq=tq.then(function(){if(window.MathJax&&MathJax.typesetPromise){return MathJax.typesetPromise(els&&els.length?els:undefined)}}).catch(function(e){console.log(e)});
+  return tq;
+}
+function debounce(f,ms){var t;return function(){clearTimeout(t);t=setTimeout(f,ms)}}
+
+/* ---------- poin, progres, toast, confetti ---------- */
+var points=0, solved={}, secTotal={}, secDone={};
+function toast(m){var t=$('toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(function(){t.classList.remove('on')},2600)}
+function addPoints(n){
+  points+=n;$('pts').textContent=points;
+  var b=$('ptsBox');b.classList.remove('bump');void b.offsetWidth;b.classList.add('bump');
+}
+function burst(x,y){
+  if(reduce)return;
+  var cols=[css('--c1'),css('--c2'),css('--c3'),css('--c4'),css('--c5'),css('--c6')];
+  for(var i=0;i<18;i++){
+    var s=el('span','cf');s.style.left=x+'px';s.style.top=y+'px';s.style.background=cols[i%6];
+    var a=Math.random()*6.28,d=50+Math.random()*80;
+    s.style.setProperty('--dx',Math.cos(a)*d+'px');s.style.setProperty('--dy',(Math.sin(a)*d-30)+'px');s.style.setProperty('--rot',(Math.random()*540-270)+'deg');
+    document.body.appendChild(s);setTimeout(function(n){return function(){n.remove()}}(s),950);
+  }
+}
+function progress(sec){
+  var stops=$$('#road .stop');
+  if(!/^[1-6]$/.test(sec))return;
+  var st=stops[+sec-1];if(!st)return;
+  var d=secDone[sec]||0,t=secTotal[sec]||1;
+  $$('.pr i',st)[0].style.width=(d/t*100)+'%';
+  $$('.pc',st)[0].textContent=d+' dari '+t+' soal'+(d===t?' · selesai':'');
+  if(d===t)toast('Kegiatan '+sec+' selesai. Lanjut ke berikutnya!');
+}
+
+/* ---------- pengerjaan vertikal ---------- */
+function buildWork(pre){
+  var stat=pre.classList.contains('static');
+  var lines=pre.textContent.split('\n').map(function(s){return s.trim()}).filter(Boolean);
+  var box=el('div','work'),grid=el('div','wg');box.appendChild(grid);
+  var groups=[],cur=[];
+  lines.forEach(function(l){
+    if(l.charAt(0)==='#'){var h=el('div','c h',l.slice(1).trim());grid.appendChild(h);cur.push(h);return}
+    var p=l.split('|').map(function(s){return s.trim()}),cls=['l','r','v','n'];
+    cls.forEach(function(k,i){
+      var t=p[i]||'',c=el('div','c '+k);
+      if(i<3){c.innerHTML=t?'\\(\\displaystyle '+t+'\\)':''}else{c.innerHTML=t}
+      grid.appendChild(c);cur.push(c);
+    });
+    groups.push(cur);cur=[];
+  });
+  var shown=0;
+  function show(n){
+    for(var i=0;i<groups.length;i++){groups[i].forEach(function(c){c.classList.toggle('on',i<n)})}
+    shown=n;
+    if(cnt){cnt.textContent='Langkah '+n+' dari '+groups.length}
+    if(nx){nx.disabled=n>=groups.length;all.disabled=n>=groups.length}
+  }
+  var cnt,nx,all;
+  if(!stat){
+    var ctl=el('div','wctl');
+    nx=el('button','b sm','Langkah berikutnya');nx.type='button';
+    all=el('button','b ghost sm','Tampilkan semua');all.type='button';
+    var rs=el('button','b ghost sm','Ulangi');rs.type='button';
+    cnt=el('span','cnt');
+    ctl.appendChild(nx);ctl.appendChild(all);ctl.appendChild(rs);ctl.appendChild(cnt);box.appendChild(ctl);
+    nx.addEventListener('click',function(){show(shown+1)});
+    all.addEventListener('click',function(){show(groups.length)});
+    rs.addEventListener('click',function(){show(1)});
+    show(1);
+  }else{show(groups.length)}
+  pre.replaceWith(box);
+}
+$$('pre.w').forEach(buildWork);
+
+/* ---------- tab ---------- */
+$$('[data-tabs]').forEach(function(ts){
+  var btns=$$('.tabs2 button',ts),panels=$$('.tp',ts);
+  btns.forEach(function(b,i){b.addEventListener('click',function(){
+    btns.forEach(function(x,j){x.setAttribute('aria-selected',j===i?'true':'false')});
+    panels.forEach(function(p,j){p.hidden=j!==i});
+  })});
+});
+
+/* ---------- kartu balik ---------- */
+$$('.flip').forEach(function(f){
+  function tog(){f.classList.toggle('fl')}
+  f.addEventListener('click',tog);
+  f.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tog()}});
+});
+
+/* ---------- lipat kertas ---------- */
+function fmtLen(m){if(m<0.01)return nf.format(m*1000)+' mm';if(m<1)return nf.format(m*100)+' cm';if(m<1000)return nf.format(m)+' m';return nf.format(m/1000)+' km'}
+function fold(){
+  var n=+$('foldN').value,L=Math.pow(2,n),h=1e-4*L;
+  $('foldVal').textContent=n;$('foldLayers').textContent=nf.format(L);$('foldH').textContent=fmtLen(h);
+  var t;
+  if(h<0.3)t='lebih tipis dari penggaris';else if(h<3)t='setinggi pintu rumah';
+  else if(h<828)t='gedung ±'+nf.format(Math.round(h/3.5))+' lantai';
+  else if(h<8849)t='lebih tinggi dari Burj Khalifa';else if(h<384400000)t='lebih tinggi dari Gunung Everest';
+  else t='melewati jarak Bumi ke Bulan';
+  $('foldCmp').textContent=t;
+}
+$('foldN').addEventListener('input',fold);fold();
+
+/* ---------- susun pangkat ---------- */
+var bb=3,be=4,bneg=false;
+function build(){
+  $('bbV').textContent=bb;$('beV').textContent=be;
+  var base=bneg?-bb:bb,bs=bneg?'(−'+bb+')':''+bb;
+  var box=$('bBlocks');box.innerHTML='';
+  for(var i=0;i<be;i++){
+    if(i){var x=el('span','times','×');box.appendChild(x)}
+    var b=el('span','blk',bs);b.style.animationDelay=(i*50)+'ms';box.appendChild(b);
+  }
+  var val=Math.pow(base,be);
+  $('bOut').innerHTML=bs+'<sup>'+be+'</sup> = '+nf.format(val).replace('-','−');
+  $('bMsg').textContent=bneg?(be%2===0?'Basis negatif, pangkat genap: hasilnya positif.':'Basis negatif, pangkat ganjil: hasilnya negatif.'):'Ada '+be+' faktor '+bb+' yang dikalikan.';
+}
+$('bbM').onclick=function(){if(bb>2){bb--;build()}};$('bbP').onclick=function(){if(bb<9){bb++;build()}};
+$('beM').onclick=function(){if(be>1){be--;build()}};$('beP').onclick=function(){if(be<8){be++;build()}};
+$('bNeg').onclick=function(){bneg=!bneg;this.setAttribute('aria-pressed',bneg);this.textContent='Basis negatif: '+(bneg?'hidup':'mati');build()};
+build();
+
+/* ---------- pola pangkat nol/negatif ---------- */
+var patV=['16','8','4','2','1','\\tfrac12','\\tfrac14','\\tfrac18'],pi=0;
+function patDraw(){
+  var ch=$('patChain');ch.innerHTML='';
+  for(var i=0;i<=pi;i++){
+    var n=4-i;
+    if(i){ch.appendChild(el('span','ar','÷2'))}
+    var c=el('span','ch'+(n===0?' hot':''),'\\(2^{'+n+'}='+patV[i]+'\\)');
+    if(i<pi)c.style.animation='none';ch.appendChild(c);
+  }
+  var m=$('patMsg');
+  if(pi<3)m.textContent='Pangkat turun 1, hasil dibagi 2.';
+  else if(pi===4)m.textContent='Sampai di sini: 2⁰ = 1. Pangkat nol selalu 1.';
+  else if(pi<7)m.textContent='Pangkat negatif menghasilkan pecahan.';
+  else m.textContent='Polanya: 2⁻ⁿ = 1/2ⁿ. Pangkat negatif berarti kebalikan.';
+  $('patNext').disabled=pi>=7;
+  typeset([ch]);
+}
+$('patNext').onclick=function(){if(pi<7){pi++;patDraw()}};
+$('patReset').onclick=function(){pi=0;patDraw()};
+patDraw();
+
+/* ---------- konverter notasi ilmiah ---------- */
+function sci(){
+  var raw=$('sciIn').value.replace(/\s/g,'').replace(',','.'),v=parseFloat(raw);
+  if(!isFinite(v)||v===0){$('sciOut').textContent='-';$('sciWhy').textContent='Ketik bilangan bukan nol.';return}
+  var s=v.toExponential(),p=s.split('e'),m=p[0].replace('.',','),e=parseInt(p[1],10);
+  $('sciOut').innerHTML=m.replace('-','−')+' × 10<sup>'+String(e).replace('-','−')+'</sup>';
+  var w;
+  if(e===0)w='Sudah berada di antara 1 dan 10, jadi n = 0.';
+  else if(e>0)w='Koma digeser '+e+' kali ke kiri, maka n = '+e+'.';
+  else w='Koma digeser '+(-e)+' kali ke kanan, maka n = −'+(-e)+'.';
+  $('sciWhy').textContent=w;
+}
+$('sciIn').addEventListener('input',sci);sci();
+$$('[data-sci]').forEach(function(b){b.onclick=function(){$('sciIn').value=b.dataset.sci;sci()}});
+
+/* ---------- benar/salah ---------- */
+(function(){
+  var tpl=$('tfData'),items=$$('div',tpl.content).filter(function(d){return d.hasAttribute('data-ok')});
+  var i=0,streak=0,answered=false;
+  function show(){
+    answered=false;var it=items[i];
+    $('tfSt').innerHTML=$$('span',it)[0].innerHTML;
+    $('tfFb').innerHTML='';$('tfNext').hidden=true;$('tfT').disabled=false;$('tfF').disabled=false;
+    $('tfCnt').textContent='Pernyataan '+(i+1)+' dari '+items.length+' · Beruntun benar: '+streak;
+    typeset([$('tfSt')]);
+  }
+  function ans(v){
+    if(answered)return;answered=true;
+    var it=items[i],ok=(it.dataset.ok==='1')===v;
+    $('tfT').disabled=true;$('tfF').disabled=true;
+    var f=el('div','fb '+(ok?'ok':'no'),(ok?'Tepat! ':'Belum tepat. ')+'<span class="ex2">'+$$('em',it)[0].innerHTML+'</span>');
+    $('tfFb').appendChild(f);
+    if(ok){streak++;addPoints(5);var r=$('tfT').getBoundingClientRect();burst(r.left+r.width,r.top)}else{streak=0;$('tfLab').classList.remove('shake')}
+    $('tfCnt').textContent='Beruntun benar: '+streak;
+    $('tfNext').hidden=false;$('tfNext').textContent=i<items.length-1?'Berikutnya':'Ulangi dari awal';
+    typeset([f]);
+  }
+  $('tfT').onclick=function(){ans(true)};$('tfF').onclick=function(){ans(false)};
+  $('tfNext').onclick=function(){i=(i+1)%items.length;show()};
+  show();
+})();
+
+/* ---------- cocokkan ---------- */
+(function(){
+  var items=$$('div',$('matchData').content),grid=$('matchGrid');
+  var L=items.map(function(d,i){return {i:i,h:$$('span',d)[0].innerHTML}});
+  var R=items.map(function(d,i){return {i:i,h:$$('span',d)[1].innerHTML}});
+  R.sort(function(a,b){return ((a.i*7+3)%5)-((b.i*7+3)%5)});
+  var cl=el('div','col'),cr=el('div','col'),sel=null,done=0;
+  function mk(o,side){var b=el('button','mb',o.h);b.type='button';b.dataset.i=o.i;b.dataset.s=side;return b}
+  L.forEach(function(o){cl.appendChild(mk(o,'L'))});R.forEach(function(o){cr.appendChild(mk(o,'R'))});
+  grid.appendChild(cl);grid.appendChild(cr);
+  grid.addEventListener('click',function(e){
+    var b=e.target.closest('.mb');if(!b||b.disabled||b.classList.contains('done'))return;
+    if(!sel||sel.dataset.s===b.dataset.s){if(sel)sel.classList.remove('sel');sel=b;b.classList.add('sel');return}
+    var a=sel;sel=null;a.classList.remove('sel');
+    if(a.dataset.i===b.dataset.i){
+      a.classList.add('done');b.classList.add('done');done++;addPoints(4);
+      $('matchMsg').textContent=done+' dari '+items.length+' pasangan benar.';
+      if(done===items.length){$('matchMsg').textContent='Semua cocok. Hebat!';var r=b.getBoundingClientRect();burst(r.left,r.top)}
+    }else{
+      [a,b].forEach(function(x){x.classList.remove('no');void x.offsetWidth;x.classList.add('no')});
+      setTimeout(function(){a.classList.remove('no');b.classList.remove('no')},450);
+      $('matchMsg').textContent='Belum cocok. Ingat: penyebut pangkat jadi indeks akar.';
+    }
+  });
+})();
+
+/* ---------- coba sendiri ---------- */
+function normT(s){
+  s=s.toLowerCase().replace(/\s+/g,'').replace(/[−–—]/g,'-').replace(/√/g,'sqrt').replace(/akar/g,'sqrt').replace(/[×·*]/g,'').replace(/≤/g,'<=').replace(/≥/g,'>=').replace(/,/g,'.').replace(/[{}]/g,'');
+  return s;
+}
+function loose(s){return s.replace(/[()]/g,'')}
+function parseNum(s){
+  s=s.toLowerCase().replace(/\s/g,'').replace(/[−–—]/g,'-').replace(/^[a-z]+=/,'');
+  if(/^-?\d{1,3}(\.\d{3})+(,\d+)?$/.test(s))s=s.replace(/\./g,'').replace(',','.');else s=s.replace(',','.');
+  var m=s.match(/^(-?\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)$/);
+  if(m)return +m[1]/+m[2];
+  if(/^-?\d+(\.\d+)?$/.test(s))return +s;
+  return NaN;
+}
+function parseSet(s){
+  s=s.toLowerCase().replace(/[−–—]/g,'-').replace(/\s+/g,' ').replace(/hp\s*=/g,'').replace(/[{}]/g,'').replace(/\b(dan|atau)\b/g,',').replace(/x\s*=/g,'');
+  var parts=s.split(/[;,]/).map(function(x){return x.trim()}).filter(Boolean),out=[];
+  for(var i=0;i<parts.length;i++){var v=parseNum(parts[i]);if(isNaN(v))return null;out.push(v)}
+  out.sort(function(a,b){return a-b});
+  return out.filter(function(v,i){return i===0||Math.abs(v-out[i-1])>1e-9});
+}
+function check(type,ans,expected){
+  if(type==='num'){var v=parseNum(ans);return !isNaN(v)&&Math.abs(v-parseNum(expected.split('||')[0]))<1e-6}
+  if(type==='set'){var a=parseSet(ans),b=parseSet(expected);return !!a&&a.length===b.length&&a.every(function(x,i){return Math.abs(x-b[i])<1e-9})}
+  var u=normT(ans),list=expected.split('||');
+  return list.some(function(e){var n=normT(e);return u===n||loose(u)===loose(n)});
+}
+var tryN=0;
+$$('.try').forEach(function(t){
+  tryN++;
+  var id=tryN,sec=t.dataset.sec,type=t.dataset.type||'num',exp=t.dataset.a,lv=t.dataset.lv;
+  var tag=el('span','tg','Coba sendiri');t.insertBefore(tag,t.firstChild);
+  if(lv){var l=el('span','lv',lv);tag.after(l)}
+  var ph=t.dataset.ph||(type==='set'?'contoh: 1,2':'ketik jawabanmu');
+  var ui=el('div','tui');
+  var inp=el("input","fld");inp.type='text';inp.id='try-'+id;inp.placeholder=ph;inp.autocomplete='off';inp.setAttribute('aria-label','Jawaban soal '+id);
+  var chk=el('button','b','Periksa');chk.type='button';
+  var hn=el('button','b ghost','Petunjuk');hn.type='button';
+  ui.appendChild(inp);ui.appendChild(chk);ui.appendChild(hn);
+  var sol=$$('details.sol',t)[0],tq=$$('.tq',t)[0];
+  tq.after(ui);
+  if(t.dataset.keys){
+    var kd=el('div','keys');
+    t.dataset.keys.split(',').forEach(function(k){var kb=el('button','',k);kb.type='button';kb.setAttribute('aria-label','Sisipkan '+k);kb.onclick=function(){inp.focus();var s=inp.selectionStart||inp.value.length;inp.setRangeText(k,s,inp.selectionEnd||s,'end')};kd.appendChild(kb)});
+    ui.after(kd);
+  }
+  var fb=el('div');fb.setAttribute('aria-live','polite');(t.querySelector('.keys')||ui).after(fb);
+  var hinted=false,wrong=0,fin=false;
+  if(/^[1-6]$/.test(sec)){secTotal[sec]=(secTotal[sec]||0)+1}
+  function go(){
+    if(fin)return;
+    var a=inp.value.trim();if(!a){fb.innerHTML='';fb.appendChild(el('div','fb hn','Ketik jawabanmu dulu.'));return}
+    if(check(type,a,exp)){
+      fin=true;inp.disabled=true;chk.disabled=true;hn.disabled=true;
+      var pts=hinted?5:10;addPoints(pts);t.classList.add('done');
+      fb.innerHTML='';fb.appendChild(el('div','fb ok','Benar! +'+pts+' poin'));
+      var r=chk.getBoundingClientRect();burst(r.left+r.width/2,r.top);
+      if(sol)sol.open=true;
+      if(/^[1-6]$/.test(sec)){secDone[sec]=(secDone[sec]||0)+1;progress(sec)}
+    }else{
+      wrong++;t.classList.remove('shake');void t.offsetWidth;t.classList.add('shake');
+      fb.innerHTML='';fb.appendChild(el('div','fb no','Belum tepat.'+(wrong>=2&&!hinted?' Buka petunjuk jika perlu.':' Coba lagi.')));
+    }
+  }
+  chk.onclick=go;inp.addEventListener('keydown',function(e){if(e.key==='Enter')go()});
+  hn.onclick=function(){hinted=true;fb.innerHTML='';var f=el('div','fb hn',t.dataset.hint||'Baca soal sekali lagi.');fb.appendChild(f);typeset([f])};
+});
+$('cntTry').textContent=tryN;
+(function(){ /* penyaring latihan */
+  var fs=$$('#filters button');
+  fs.forEach(function(b){b.onclick=function(){
+    fs.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');x.classList.toggle('ghost',x!==b)});
+    $$('#latihan .try').forEach(function(t){t.hidden=!(b.dataset.f==='all'||t.dataset.lv===b.dataset.f)});
+  }});
+})();
+
+/* ---------- studio grafik ---------- */
+var gc=$('gCanvas'),gx=gc.getContext('2d'),gmir=false;
+function fmtN(v){return nf.format(Math.round(v*10)/10)}
+function drawG(){
+  var a=+$('gA').value,h=+$('gH').value,k=+$('gK').value;
+  $('gAV').textContent=fmtN(a);$('gHV').textContent=h;$('gKV').textContent=k;
+  var dpr=window.devicePixelRatio||1,w=gc.clientWidth,hh=gc.clientHeight;if(!w||!hh)return;
+  gc.width=Math.round(w*dpr);gc.height=Math.round(hh*dpr);gx.setTransform(dpr,0,0,dpr,0,0);gx.clearRect(0,0,w,hh);
+  var xmin=-5,xmax=5,ymin=-4,ymax=9,pL=30,pR=12,pT=10,pB=22;
+  var X=function(x){return pL+(x-xmin)/(xmax-xmin)*(w-pL-pR)},Y=function(y){return pT+(ymax-y)/(ymax-ymin)*(hh-pT-pB)};
+  var line=css('--line'),ink=css('--ink'),muted=css('--muted'),acc=css('--c5'),warn=css('--c1'),i;
+  gx.font='12px '+css('--f-body');gx.lineWidth=1;gx.strokeStyle=line;gx.fillStyle=muted;
+  gx.textAlign='center';gx.textBaseline='top';
+  for(i=xmin;i<=xmax;i++){gx.beginPath();gx.moveTo(X(i),Y(ymax));gx.lineTo(X(i),Y(ymin));gx.stroke();if(i)gx.fillText(i,X(i),Y(0)+4)}
+  gx.textAlign='right';gx.textBaseline='middle';
+  for(i=ymin;i<=ymax;i++){gx.beginPath();gx.moveTo(X(xmin),Y(i));gx.lineTo(X(xmax),Y(i));gx.stroke();if(i)gx.fillText(i,X(0)-4,Y(i))}
+  gx.strokeStyle=ink;gx.lineWidth=1.6;
+  gx.beginPath();gx.moveTo(X(xmin),Y(0));gx.lineTo(X(xmax),Y(0));gx.stroke();
+  gx.beginPath();gx.moveTo(X(0),Y(ymax));gx.lineTo(X(0),Y(ymin));gx.stroke();
+  gx.save();gx.beginPath();gx.rect(pL,pT,w-pL-pR,hh-pT-pB);gx.clip();
+  gx.strokeStyle=warn;gx.lineWidth=2;gx.setLineDash([7,5]);
+  gx.beginPath();gx.moveTo(X(xmin),Y(k));gx.lineTo(X(xmax),Y(k));gx.stroke();gx.setLineDash([]);
+  function curve(f,col,dash){gx.strokeStyle=col;gx.lineWidth=3.2;gx.setLineDash(dash||[]);gx.beginPath();var first=true;
+    for(var x=xmin;x<=xmax+1e-9;x+=0.025){var y=f(x);if(first){gx.moveTo(X(x),Y(y));first=false}else gx.lineTo(X(x),Y(y))}gx.stroke();gx.setLineDash([])}
+  var f=function(x){return Math.pow(a,x-h)+k};
+  if(gmir)curve(function(x){return Math.pow(a,-(x)-h)+k},muted,[3,5]);
+  curve(f,acc);gx.restore();
+  var yi=f(0);
+  if(yi>=ymin&&yi<=ymax){gx.fillStyle=acc;gx.beginPath();gx.arc(X(0),Y(yi),5,0,6.3);gx.fill()}
+  /* info */
+  var ex=h===0?'x':(h>0?'x-'+h:'x+'+(-h)),kp=k===0?'':(k>0?'+'+k:'-'+(-k)),as=fmtN(a).replace(',','{,}');
+  var yv=Math.round(yi*100)/100;
+  var tiles=[];
+  if(Math.abs(a-1)<1e-9){$('gInfo').innerHTML='<div class="tile" style="grid-column:1/-1"><div class="k">Perhatian</div><div class="v" style="font:600 1rem var(--f-body)">Basis 1 bukan fungsi eksponen. Grafiknya hanya garis lurus. Geser slider basis.</div></div>';return}
+  $('gInfo').innerHTML=
+   '<div class="tile"><div class="k">Fungsi</div><div class="v">\\(y='+as+'^{'+ex+'}'+kp+'\\)</div></div>'+
+   '<div class="tile"><div class="k">Sifat</div><div class="v" style="font-size:1.1rem">'+(a>1?'Naik':'Turun')+'</div></div>'+
+   '<div class="tile"><div class="k">Asimtot datar</div><div class="v">\\(y='+k+'\\)</div></div>'+
+   '<div class="tile"><div class="k">Memotong sumbu-Y</div><div class="v">\\((0,\\ '+String(yv).replace('.','{,}')+')\\)</div></div>'+
+   '<div class="tile"><div class="k">Daerah hasil</div><div class="v">\\(y\\gt '+k+'\\)</div></div>';
+  typesetG();
+}
+var typesetG=debounce(function(){typeset([$('gInfo')])},150);
+['gA','gH','gK'].forEach(function(id){$(id).addEventListener('input',drawG)});
+$('gMir').onclick=function(){gmir=!gmir;this.setAttribute('aria-pressed',gmir);this.textContent='Cermin y-axis: '+(gmir?'hidup':'mati');drawG()};
+$('gReset').onclick=function(){$('gA').value=2;$('gH').value=0;$('gK').value=0;gmir=false;$('gMir').setAttribute('aria-pressed','false');$('gMir').textContent='Cermin y-axis: mati';drawG()};
+window.addEventListener('resize',function(){drawG();drawC()});
+if(window.matchMedia)matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){drawG();drawC()});
+new MutationObserver(function(){drawG();drawC()}).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+
+/* ---------- kalkulator terapan ---------- */
+var cmode='up';
+function readC(){return {M:parseFloat($('cM').value),r:parseFloat($('cR').value),t:parseFloat($('cT').value)}}
+function valAt(p,t){
+  if(cmode==='half')return p.M*Math.pow(0.5,t/p.r);
+  var f=cmode==='up'?1+p.r/100:1-p.r/100;return p.M*Math.pow(f,t);
+}
+var cTex=debounce(function(){
+  var p=readC();if(isNaN(p.M)||isNaN(p.r)||isNaN(p.t)){return}
+  var n=function(v){return String(Math.round(v*1000)/1000).replace('.','{,}')};
+  var s;
+  if(cmode==='half')s='N='+n(p.M)+'\\left(\\tfrac12\\right)^{'+n(p.t)+'/'+n(p.r)+'}';
+  else s='M_t='+n(p.M)+'\\left(1'+(cmode==='up'?'+':'-')+n(p.r/100)+'\\right)^{'+n(p.t)+'}';
+  $('cTex').innerHTML='\\('+s+'\\)';typeset([$('cTex')]);
+},250);
+function calc(){
+  var p=readC();
+  if(isNaN(p.M)||isNaN(p.r)||isNaN(p.t)||(cmode==='half'&&p.r<=0)){$('cF').textContent='-';$('cOut').textContent='-';return}
+  var f=cmode==='half'?0.5:(cmode==='up'?1+p.r/100:1-p.r/100);
+  $('cF').textContent=cmode==='half'?'½ tiap '+nf.format(p.r)+' satuan':nf.format(Math.round(f*1e6)/1e6);
+  var v=valAt(p,p.t);$('cOut').textContent=isFinite(v)?nf.format(v):'-';
+  cTex();drawC();
+}
+function drawC(){
+  var cv=$('cCanvas'),c=cv.getContext('2d'),p=readC();
+  var dpr=window.devicePixelRatio||1,w=cv.clientWidth,h=cv.clientHeight;if(!w||!h)return;
+  cv.width=Math.round(w*dpr);cv.height=Math.round(h*dpr);c.setTransform(dpr,0,0,dpr,0,0);c.clearRect(0,0,w,h);
+  if(isNaN(p.M)||isNaN(p.r)||isNaN(p.t)||p.t<=0||(cmode==='half'&&p.r<=0))return;
+  var pts=[],N=60,i,mx=0,mn=Infinity;
+  for(i=0;i<=N;i++){var t=p.t*i/N,v=valAt(p,t);pts.push([t,v]);mx=Math.max(mx,v);mn=Math.min(mn,v)}
+  var lo=Math.min(0,mn),hi=Math.max(mx,1e-9)*1.12,pL=14,pR=14,pT=24,pB=26;
+  var X=function(t){return pL+t/p.t*(w-pL-pR)},Y=function(v){return pT+(hi-v)/(hi-lo)*(h-pT-pB)};
+  var line=css('--line'),ink=css('--ink'),muted=css('--muted'),col=css('--c6');
+  c.strokeStyle=line;c.lineWidth=1;
+  for(i=0;i<=4;i++){var gy=pT+i*(h-pT-pB)/4;c.beginPath();c.moveTo(pL,gy);c.lineTo(w-pR,gy);c.stroke()}
+  var g=c.createLinearGradient(0,pT,0,h-pB);g.addColorStop(0,col+'55');g.addColorStop(1,col+'05');
+  c.beginPath();pts.forEach(function(q,j){j?c.lineTo(X(q[0]),Y(q[1])):c.moveTo(X(q[0]),Y(q[1]))});
+  c.lineTo(X(p.t),Y(lo));c.lineTo(X(0),Y(lo));c.closePath();c.fillStyle=g;c.fill();
+  c.strokeStyle=col;c.lineWidth=3;c.beginPath();pts.forEach(function(q,j){j?c.lineTo(X(q[0]),Y(q[1])):c.moveTo(X(q[0]),Y(q[1]))});c.stroke();
+  c.fillStyle=col;[[0,pts[0][1]],[p.t,pts[N][1]]].forEach(function(q){c.beginPath();c.arc(X(q[0]),Y(q[1]),5,0,6.3);c.fill()});
+  c.font='600 12px '+css('--f-body');c.fillStyle=ink;c.textBaseline='bottom';
+  c.textAlign='left';c.fillText(nf.format(pts[0][1]),Math.max(pL,X(0)),Y(pts[0][1])-8);
+  c.textAlign='right';c.fillText(nf.format(pts[N][1]),X(p.t),Y(pts[N][1])-8);
+  c.fillStyle=muted;c.textBaseline='top';c.textAlign='left';c.fillText('t = 0',pL,h-pB+6);c.textAlign='right';c.fillText('t = '+nf.format(p.t),w-pR,h-pB+6);
+}
+$$('.cm').forEach(function(b){b.onclick=function(){
+  cmode=b.dataset.m;$$('.cm').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+  if(cmode==='half'){$('cRl').textContent='Waktu paruh T';$('cTl').textContent='Waktu berlalu t';$('cR').value=5;$('cT').value=20;$('cM').value=80}
+  else{$('cRl').textContent='Laju per periode (%)';$('cTl').textContent='Banyak periode';$('cR').value=cmode==='up'?10:20;$('cT').value=3;$('cM').value=cmode==='up'?5000000:200}
+  calc();
+}});
+['cM','cR','cT'].forEach(function(id){$(id).addEventListener('input',calc)});
+
+/* ---------- kuis ---------- */
+(function(){
+  var items=$$('div',$('quizData').content).filter(function(d){return d.hasAttribute('data-a')});
+  var box=$('quiz'),i=0,score=0,L=['A','B','C','D'];
+  function render(){
+    if(i>=items.length){
+      var msg=score>=9?'Luar biasa! Kamu menguasai eksponen.':score>=7?'Bagus! Sedikit lagi sempurna.':score>=5?'Cukup baik. Ulangi bagian yang masih ragu.':'Pelajari lagi peta materi, lalu coba kuis ini kembali.';
+      box.innerHTML='<div class="res"><div class="sc2">'+score+'<small> / '+items.length+'</small></div><p style="font-size:1.1rem;font-weight:600">'+msg+'</p><button type="button" class="b" id="qRe">Ulangi kuis</button></div>';
+      $('qRe').onclick=function(){i=0;score=0;render()};
+      if(score>=7){var r=box.getBoundingClientRect();burst(r.left+r.width/2,r.top+80)}
+      return;
+    }
+    var it=items[i],ans=+it.dataset.a;
+    var opts=$$('li',it).map(function(li,k){return '<button type="button" class="opt" data-k="'+k+'"><b>'+L[k]+'</b><span>'+li.innerHTML+'</span></button>'}).join('');
+    box.innerHTML='<div class="qp"><i style="width:'+(i/items.length*100)+'%"></i></div><div class="qm"><span>Soal '+(i+1)+' dari '+items.length+'</span><span>Skor '+score+'</span></div><div class="qt">'+$$('p',it)[0].innerHTML+'</div><div class="opts">'+opts+'</div><div id="qFb"></div><div class="row" style="justify-content:flex-end"><button type="button" class="b" id="qNx" hidden>'+(i<items.length-1?'Soal berikutnya':'Lihat hasil')+'</button></div>';
+    $$('.opt',box).forEach(function(b){b.onclick=function(){
+      var k=+b.dataset.k,ok=k===ans;
+      $$('.opt',box).forEach(function(x){x.disabled=true;if(+x.dataset.k===ans)x.classList.add('ok')});
+      if(!ok)b.classList.add('no');else{score++;addPoints(5);var r=b.getBoundingClientRect();burst(r.left+40,r.top)}
+      var f=el('div','fb '+(ok?'ok':'no'),(ok?'Benar! ':'Belum tepat. Jawaban: '+L[ans]+'. ')+'<span class="ex2">'+$$('em',it)[0].innerHTML+'</span>');
+      $('qFb').appendChild(f);$('qNx').hidden=false;typeset([f]);
+    }});
+    $('qNx').onclick=function(){i++;render()};
+    typeset([box]);
+  }
+  render();
+})();
+
+/* ---------- hero ---------- */
+(function(){
+  var svg=$('heroCurve'),W=360,H=230,x0=40,y0=190,sx=(W-x0-14)/6.4,sy=(y0-14)/9;
+  var X=function(x){return x0+(x+3)*sx},Y=function(y){return y0-y*sy};
+  var NS='http://www.w3.org/2000/svg';
+  function add(n,a,txt){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;svg.appendChild(e);return e}
+  for(var gx2=-3;gx2<=3;gx2++)add('line',{x1:X(gx2),y1:14,x2:X(gx2),y2:y0,stroke:'rgba(255,255,255,.1)'});
+  for(var gy2=0;gy2<=8;gy2+=2)add('line',{x1:x0,y1:Y(gy2),x2:W-10,y2:Y(gy2),stroke:'rgba(255,255,255,.1)'});
+  add('line',{x1:x0,y1:y0,x2:W-10,y2:y0,stroke:'rgba(255,255,255,.55)','stroke-width':1.5});
+  add('line',{x1:X(0),y1:12,x2:X(0),y2:y0+4,stroke:'rgba(255,255,255,.55)','stroke-width':1.5});
+  var d='';for(var x=-3;x<=3.2;x+=0.05){d+=(d?'L':'M')+X(x).toFixed(1)+' '+Y(Math.pow(2,x)).toFixed(1)}
+  var p=add('path',{d:d,fill:'none',stroke:'#FFC94D','stroke-width':4,'stroke-linecap':'round',pathLength:1,'stroke-dasharray':1,'stroke-dashoffset':reduce?0:1});
+  if(!reduce){p.style.animation='draw 2.4s .6s ease forwards'}
+  [[0,1],[1,2],[2,4],[3,8]].forEach(function(q,i){
+    var c=add('circle',{cx:X(q[0]),cy:Y(q[1]),r:5,fill:'#4FD6C5'});
+    var t=add('text',{x:q[0]===3?X(q[0])-10:X(q[0])+9,y:q[0]===3?Y(q[1])+18:Y(q[1])-6,'text-anchor':q[0]===3?'end':'start',fill:'#EAF0FF','font-size':13,'font-weight':700},'(' +q[0]+', '+q[1]+')');
+    if(!reduce){[c,t].forEach(function(n){n.style.opacity=0;n.style.animation='pop .4s '+(1.2+i*.4)+'s forwards'})}
+  });
+  add('text',{x:W-12,y:y0+16,fill:'rgba(255,255,255,.7)','font-size':12,'text-anchor':'end'},'x');
+  add('text',{x:X(0)+6,y:22,fill:'rgba(255,255,255,.7)','font-size':12},'y = 2ˣ');
+  var sup='⁰¹²³⁴⁵⁶⁷⁸⁹',n=1,pw=$('pw');
+  function tk(){
+    var v=Math.pow(2,n);$('tk1').innerHTML='2<sup>'+n+'</sup> = '+nf.format(v);
+    pw.textContent=n;
+    n=n>=12?1:n+1;
+  }
+  tk();if(!reduce)setInterval(tk,1000);
+  $$('.chip b[data-n]').forEach(function(b){
+    var to=+b.dataset.n;if(reduce)return;var s=0;b.textContent=0;
+    var iv=setInterval(function(){s++;b.textContent=s;if(s>=to)clearInterval(iv)},90);
+  });
+})();
+
+/* ---------- navigasi, jalur, kemunculan ---------- */
+var bar=$('bar'),links=$$('#nav a'),secs=links.map(function(a){return $(a.getAttribute('href').slice(1))});
+function onScroll(){
+  var d=document.documentElement,max=d.scrollHeight-window.innerHeight;
+  bar.style.width=(max>0?Math.min(100,window.scrollY/max*100):0)+'%';
+  var cur=-1,y=window.scrollY+130;
+  secs.forEach(function(s,i){if(s&&s.offsetTop+(s.offsetParent?0:0)<=y&&s.getBoundingClientRect().top+window.scrollY<=y)cur=i});
+  links.forEach(function(a,i){var on=i===cur;a.classList.toggle('on',on);if(on)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current')});
+  if(cur>=0){var a=links[cur],p=$('nav'),l=a.offsetLeft-p.clientWidth/2+a.clientWidth/2;if(Math.abs(p.scrollLeft-l)>40)p.scrollLeft=l}
+  var rd=$('road'),r=rd.getBoundingClientRect(),vh=window.innerHeight;
+  var fill=Math.max(0,Math.min(r.height,vh*0.6-r.top));
+  $('roadFill').style.height=fill+'px';
+}
+window.addEventListener('scroll',onScroll,{passive:true});window.addEventListener('resize',onScroll);onScroll();
+if('IntersectionObserver' in window&&!reduce){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08});
+  $$('.rv').forEach(function(n){io.observe(n)});
+}
+
+/* ---------- mulai ---------- */
+typeset([document.body]).then(function(){document.documentElement.classList.remove('mj-wait');drawG();calc()});
+setTimeout(function(){document.documentElement.classList.remove('mj-wait');drawG();calc()},8000);
+drawG();calc();
+})();
+</script>
+
+</body></html>
